@@ -27,7 +27,6 @@
     if (self.emailTextFieldActionBlock) {
         self.emailTextFieldActionBlock();
     }
-
 }
 //- (IBAction)emailTextFieldDidEndEditing:(id)sender
 //{

@@ -53,6 +53,7 @@
         static NSString *CellIdentifier1 = @"EmailCell";
         EmailAddressCell *cell = (EmailAddressCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier1 forIndexPath:indexPath];
          cell.separatorInset = UIEdgeInsetsMake(0, 1000, 0, 0);
+         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         __weak SignInViewController *weakSelf = self;
         cell.emailTextFieldActionBlock = ^{
@@ -64,6 +65,7 @@
        static NSString *CellIdentifier2 = @"PasswordCell";
         PasswordCell *cell = (PasswordCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier2 forIndexPath:indexPath];
          cell.separatorInset = UIEdgeInsetsMake(0, 1000, 0, 0);
+         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         __weak SignInViewController *weakSelf = self;
         cell.passwordTextFieldActionBlock = ^{
@@ -76,6 +78,7 @@
        static NSString *CellIdentifier3 = @"ForgotPasswordCell";
         ForgotPasswordCell *cell = (ForgotPasswordCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier3 forIndexPath:indexPath];
         cell.separatorInset = UIEdgeInsetsMake(0, 1000, 0, 0);
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         __weak SignInViewController *weakSelf = self;
         cell.forgotPasswordBlock = ^{
@@ -88,6 +91,7 @@
         static NSString *CellIdentifier4 = @"SignInCell";
         SignInButtonCell *cell = (SignInButtonCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier4 forIndexPath:indexPath];
         cell.separatorInset = UIEdgeInsetsMake(0, 1000, 0, 0);
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         __weak SignInViewController *weakSelf = self;
         
@@ -121,13 +125,18 @@
     NSString *emailID = emailCell.emailAddressTextfield.text;
     NSString *password = passwordCell.passwordTextField.text;
     
-    
     if(![validations validateEmail:emailID])
     {
         emailCell.emailAddressLabel.text = @"Enter valid email address";
         emailCell.emailAddressLabel.textColor = [UIColor redColor];
     }
-    else if(![validations validatePassword:password])
+    else
+    {
+        emailCell.emailAddressLabel.text = @"EMAIL ADDRESS";
+    }
+        
+   
+   if(![validations validatePassword:password])
     {
         passwordCell.passwordLabel.text = @"Enter correct password";
         passwordCell.passwordLabel.textColor = [UIColor redColor];

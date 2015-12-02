@@ -23,6 +23,7 @@
     [self.signupTableView registerNib:[UINib nibWithNibName:@"EmailAddressCell" bundle:nil] forCellReuseIdentifier:@"EmailCell"];
     [self.signupTableView registerNib:[UINib nibWithNibName:@"PasswordCell" bundle:nil] forCellReuseIdentifier:@"PasswordCell"];
     _signupTableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,7 +32,7 @@
 }
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100.0f;
+    return 90.0f;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -43,28 +44,44 @@
     {
     NameViewCell *cell = (NameViewCell *)[tableView dequeueReusableCellWithIdentifier:@"NameCell" forIndexPath:indexPath];
     cell.separatorInset = UIEdgeInsetsMake(0, 1000, 0, 0);
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
     }
     if (indexPath.row == 1)
     {
         EmailAddressCell *cell = (EmailAddressCell *)[tableView dequeueReusableCellWithIdentifier:@"EmailCell" forIndexPath:indexPath];
         cell.separatorInset = UIEdgeInsetsMake(0, 1000, 0, 0);
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        __weak SignUpViewController *weakSelf = self;
+        cell.emailTextFieldActionBlock = ^{
+            [weakSelf emailTextFieldAction];
+        };
+
         return cell;
     }
     if (indexPath.row == 2) {
         PasswordCell *cell = (PasswordCell *)[tableView dequeueReusableCellWithIdentifier:@"PasswordCell" forIndexPath:indexPath];
         cell.separatorInset = UIEdgeInsetsMake(0, 1000, 0, 0);
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return  cell;
     }
     if (indexPath.row == 3) {
         PasswordCell *cell = (PasswordCell *)[tableView dequeueReusableCellWithIdentifier:@"PasswordCell" forIndexPath:indexPath];
         cell.separatorInset = UIEdgeInsetsMake(0, 1000, 0, 0);
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.passwordTextField.placeholder = @"Confirm Password";
         cell.passwordLabel.text = @"CONFIRM PASSWORD";
         return cell;
         
     }
     return nil;
+}
+-(void) emailTextFieldAction
+{
+    
+    EmailAddressCell *emailCell = (EmailAddressCell *)[self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+    emailCell.emailIDSeparatorView.backgroundColor = [UIColor colorWithRed:78.0f/255.0f green:208.0f/255.0f blue:225.0f/255.0f alpha:1];
 }
 /*
 #pragma mark - Navigation

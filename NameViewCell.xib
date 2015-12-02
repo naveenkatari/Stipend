@@ -16,10 +16,11 @@
                         <rect key="frame" x="169" y="0.0" width="168" height="99"/>
                         <subviews>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zD1-H6-6jc" userLabel="UnderLineView">
-                                <rect key="frame" x="15" y="92" width="138" height="1"/>
+                                <rect key="frame" x="15" y="92" width="120" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="H62-jC-snR"/>
+                                    <constraint firstAttribute="width" constant="120" id="vSX-Yt-SeB"/>
                                 </constraints>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W7z-rx-W6a">
@@ -63,13 +64,15 @@
                                 <rect key="frame" x="15" y="92" width="139" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="4fU-us-ITm"/>
                                     <constraint firstAttribute="height" constant="2" id="eBm-gf-Mly"/>
                                 </constraints>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mnw-Pv-sgh">
-                                <rect key="frame" x="15" y="48" width="139" height="44"/>
+                                <rect key="frame" x="15" y="48" width="120" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="45y-HB-NNM"/>
+                                    <constraint firstAttribute="width" constant="120" id="o73-n9-0yf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
