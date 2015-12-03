@@ -18,8 +18,26 @@
 }
 -(BOOL) validatePassword:(NSString *)passwordToValidate
 {
-    NSString *regexForPassword = @"[a-zA-Z0-9]+";
-    NSPredicate *passwordValidation = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regexForPassword];
-    return [passwordValidation evaluateWithObject:passwordToValidate];
+//    NSString *regexForPassword = @"[a-zA-Z0-9]+";
+//    NSPredicate *passwordValidation = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regexForPassword];
+//    return [passwordValidation evaluateWithObject:passwordToValidate];
+    NSError *error = NULL;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^(?=.*[a-z])(?=.*\\d)[a-z\\d]*$"
+                                                                           options:NSRegularExpressionCaseInsensitive
+                                                                             error:&error];
+    NSArray *matches = [regex matchesInString:passwordToValidate
+                                      options:0
+                                        range:NSMakeRange(0, [passwordToValidate length])];
+    
+    if([matches count] > 0)
+    {
+        // Valid input
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+    
 }
 @end

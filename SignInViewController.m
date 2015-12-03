@@ -40,6 +40,7 @@
     
     return  90.0f;
 }
+#pragma mark - Table Field delegate methods
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -125,24 +126,25 @@
     NSString *emailID = emailCell.emailAddressTextfield.text;
     NSString *password = passwordCell.passwordTextField.text;
     
+    //Email Validation
     if(![validations validateEmail:emailID])
     {
         emailCell.emailAddressLabel.text = @"Enter valid email address";
         emailCell.emailAddressLabel.textColor = [UIColor redColor];
     }
-    else
+    else 
     {
-        emailCell.emailAddressLabel.text = @"EMAIL ADDRESS";
+        emailCell.emailAddressLabel.text = @"";
     }
         
-   
+   //Password validation
    if(![validations validatePassword:password])
     {
         passwordCell.passwordLabel.text = @"Enter correct password";
         passwordCell.passwordLabel.textColor = [UIColor redColor];
     }
     else {
-        NSLog(@"Logged In!!!");
+        passwordCell.passwordLabel.text =@"";
     }
 }
 -(void) forgetPasswordAction
