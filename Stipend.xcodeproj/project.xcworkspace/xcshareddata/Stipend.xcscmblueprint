@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "2E854315CE34D63E65EFCD9488250E1F3C387A27",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "9794E9C75B37B59C327C3A653296A65E94D4DF7D" : 0,
+    "2E854315CE34D63E65EFCD9488250E1F3C387A27" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "2780FAFC-4AF8-4FD6-A937-585934886729",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "9794E9C75B37B59C327C3A653296A65E94D4DF7D" : "StipendStipend",
+    "2E854315CE34D63E65EFCD9488250E1F3C387A27" : "Stipend"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Stipend",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Stipend.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/sourcebits-naveenk\/Stipend.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2E854315CE34D63E65EFCD9488250E1F3C387A27"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/sourcebits-naveenk\/Stipend.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9794E9C75B37B59C327C3A653296A65E94D4DF7D"
+    }
+  ]
+}

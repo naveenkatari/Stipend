@@ -170,15 +170,19 @@
 -(void) getSigninResponseFromServer:(NSString *)method withParameters:(NSMutableDictionary *)parameters
 {
     
-    ActivityIndicatorView *activityView = [[NSBundle mainBundle] loadNibNamed:@"ActivityIndicatorView" owner:self options:nil][0];
+   ActivityIndicatorView *activityView = [[NSBundle mainBundle] loadNibNamed:@"ActivityIndicatorView" owner:self options:nil][0];
+    [self.view addSubview:activityView];
+    activityView.center = self.view.center;
     
-    
+    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
     [[APIClient sharedAPIClient] loginWithUserDetails:parameters WithCompletionHandler:^(NSDictionary *responseData, NSURLResponse *response, NSError *error) {
         if ( [[responseData objectForKey:@"ErrorCode" ]  isEqualToNumber:[ NSNumber numberWithLong:0 ] ] ) {
             SignInStatusVC *signInVC = [self.navigationController.storyboard instantiateViewControllerWithIdentifier:@"SignedInVC"];
             [self.navigationController pushViewController:signInVC animated:YES];
         }
         NSLog(@"response data %@", responseData);
+        [activityView setHidden:YES];
+        [[UIApplication sharedApplication]endIgnoringInteractionEvents];
     }];
 }
 
