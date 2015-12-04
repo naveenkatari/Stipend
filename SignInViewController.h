@@ -12,7 +12,6 @@
 #import "ForgotPasswordCell.h"
 #import "SignInButtonCell.h"
 
-@interface SignInViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
-@property (weak, nonatomic) IBOutlet UITableView *signInTableView;
+@interface SignInViewController : UITableViewController
 
 @end

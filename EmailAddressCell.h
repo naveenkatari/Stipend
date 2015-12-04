@@ -14,6 +14,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *emailAddressTextfield;
 @property (nonatomic, strong) void (^emailTextFieldActionBlock)();
 @property (weak, nonatomic) IBOutlet UIView *emailIDSeparatorView;
-@property(nonatomic,strong) void (^emailTextFieldColorChangeBlock)();
+@property(nonatomic, weak) void (^setFirstResponderTextFieldBlock)();
 
 @end

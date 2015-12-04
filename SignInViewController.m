@@ -13,6 +13,8 @@
 #import "SignInStatusVC.h"
 #import "APIClient.h"
 #import "APIClient+SignInAPI.h"
+#import "ActivityIndicatorView.h"
+
 
 @interface SignInViewController ()
 {
@@ -27,16 +29,24 @@
 {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
-    [self.signInTableView registerNib:[UINib nibWithNibName:@"EmailAddressCell" bundle:nil] forCellReuseIdentifier:@"EmailCell"];
-    [self.signInTableView registerNib:[UINib nibWithNibName:@"PasswordCell" bundle:nil] forCellReuseIdentifier:@"PasswordCell"];
-    [self.signInTableView registerNib:[UINib nibWithNibName:@"ForgotPasswordCell" bundle:nil] forCellReuseIdentifier:@"ForgotPasswordCell"];
-    [self.signInTableView registerNib:[UINib nibWithNibName:@"SignInButtonCell" bundle:nil] forCellReuseIdentifier:@"SignInCell"];
-     _signInTableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"EmailAddressCell" bundle:nil] forCellReuseIdentifier:@"EmailCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"PasswordCell" bundle:nil] forCellReuseIdentifier:@"PasswordCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"ForgotPasswordCell" bundle:nil] forCellReuseIdentifier:@"ForgotPasswordCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"SignInButtonCell" bundle:nil] forCellReuseIdentifier:@"SignInCell"];
+    
+    self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+    [self setEmailTextFieldFirstResponder];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -104,18 +114,17 @@
         };
         return cell;
     }
-
     return nil;
 }
 -(void) emailTextFieldAction
 {
-    EmailAddressCell *emailCell = (EmailAddressCell *)[self.signInTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    EmailAddressCell *emailCell = (EmailAddressCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     emailCell.emailIDSeparatorView.backgroundColor = [UIColor colorWithRed:78.0f/255.0f green:208.0f/255.0f blue:225.0f/255.0f alpha:1];
 }
 -(void) passwordTextFieldAction
 {
     
-    PasswordCell *passwordCell = (PasswordCell *)[self.signInTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+    PasswordCell *passwordCell = (PasswordCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
     passwordCell.passwordSeparatorView.backgroundColor = [UIColor colorWithRed:78.0f/255.0f green:208.0f/255.0f blue:225.0f/255.0f alpha:1];
     
 }
@@ -123,8 +132,8 @@
 -(void) signInAction
 {
     validations = [[Validations alloc]init];
-    EmailAddressCell *emailCell = (EmailAddressCell *)[self.signInTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    PasswordCell *passwordCell = (PasswordCell *)[self.signInTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+    EmailAddressCell *emailCell = (EmailAddressCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    PasswordCell *passwordCell = (PasswordCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
     
     NSString *emailID = emailCell.emailAddressTextfield.text;
     NSString *password = passwordCell.passwordTextField.text;
@@ -135,10 +144,6 @@
         emailCell.emailAddressLabel.text = @"Enter valid email address";
         emailCell.emailAddressLabel.textColor = [UIColor redColor];
     }
-//    else 
-//    {
-//        emailCell.emailAddressLabel.text = @"";
-//    }
     
    //Password validation
   else if(![validations validatePassword:password])
@@ -164,12 +169,23 @@
 
 -(void) getSigninResponseFromServer:(NSString *)method withParameters:(NSMutableDictionary *)parameters
 {
-    [[UIApplication sharedApplication]setNetworkActivityIndicatorVisible:YES];
+    
+    ActivityIndicatorView *activityView = [[NSBundle mainBundle] loadNibNamed:@"ActivityIndicatorView" owner:self options:nil][0];
+    
     
     [[APIClient sharedAPIClient] loginWithUserDetails:parameters WithCompletionHandler:^(NSDictionary *responseData, NSURLResponse *response, NSError *error) {
+        if ( [[responseData objectForKey:@"ErrorCode" ]  isEqualToNumber:[ NSNumber numberWithLong:0 ] ] ) {
+            SignInStatusVC *signInVC = [self.navigationController.storyboard instantiateViewControllerWithIdentifier:@"SignedInVC"];
+            [self.navigationController pushViewController:signInVC animated:YES];
+        }
         NSLog(@"response data %@", responseData);
-        [[UIApplication sharedApplication]setNetworkActivityIndicatorVisible:NO];
     }];
+}
+
+-(void) setEmailTextFieldFirstResponder
+{
+    EmailAddressCell *emailCell = (EmailAddressCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    [emailCell.emailAddressTextfield becomeFirstResponder];
 }
 
 @end

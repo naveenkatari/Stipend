@@ -41,6 +41,10 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void) viewDidAppear:(BOOL)animated
+{
+    [self setFirstNameTextFieldFirstResponder];
+}
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 90.0f;
@@ -105,7 +109,7 @@
     
     EmailAddressCell *emailCell = (EmailAddressCell *)[self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
     emailCell.emailIDSeparatorView.backgroundColor = [UIColor colorWithRed:78.0f/255.0f green:208.0f/255.0f blue:225.0f/255.0f alpha:1];
-}       
+}
 -(void) signUpAction
 {
     
@@ -157,5 +161,10 @@
      {
          NSLog(@"Server Response %@", responseData);
      }];
+}
+-(void) setFirstNameTextFieldFirstResponder
+{
+    NameViewCell *nameCell = (NameViewCell *)[self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    [nameCell.firstNameTextField becomeFirstResponder];
 }
 @end

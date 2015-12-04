@@ -307,7 +307,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="VZ6-IB-BQH" kind="push" identifier="SignIn Segue" id="x7w-IV-x2V"/>
+                                    <segue destination="PTP-fI-YoR" kind="show" id="nfl-2K-fpa"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uPS-O6-UhB">
@@ -556,65 +556,22 @@
             </objects>
             <point key="canvasLocation" x="1654.5" y="432"/>
         </scene>
-        <!--Sign In-->
-        <scene sceneID="b2U-yB-uUY">
+        <!--Sign In View Controller-->
+        <scene sceneID="oY5-fk-o9Z">
             <objects>
-                <viewController title="Sign In" id="VZ6-IB-BQH" customClass="SignInViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="GtA-TW-4Uh"/>
-                        <viewControllerLayoutGuide type="bottom" id="APg-0E-TgS"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="n2v-om-jmX">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                <tableViewController id="PTP-fI-YoR" customClass="SignInViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="u25-MQ-AcT">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Bz4-67-KEE">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="VZ6-IB-BQH" id="xHC-QW-bs9"/>
-                                    <outlet property="delegate" destination="VZ6-IB-BQH" id="6xI-u4-JSV"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Bz4-67-KEE" secondAttribute="trailing" id="3QK-YG-TUP"/>
-                            <constraint firstItem="Bz4-67-KEE" firstAttribute="top" secondItem="GtA-TW-4Uh" secondAttribute="bottom" id="4Eg-Tm-IaT"/>
-                            <constraint firstItem="Bz4-67-KEE" firstAttribute="leading" secondItem="n2v-om-jmX" secondAttribute="leading" id="j5A-05-AXd"/>
-                            <constraint firstAttribute="bottom" secondItem="Bz4-67-KEE" secondAttribute="bottom" id="qYr-QC-tx4"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="Bz4-67-KEE"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="3QK-YG-TUP"/>
-                                <exclude reference="4Eg-Tm-IaT"/>
-                                <exclude reference="j5A-05-AXd"/>
-                                <exclude reference="qYr-QC-tx4"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="Bz4-67-KEE"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="3QK-YG-TUP"/>
-                                <include reference="4Eg-Tm-IaT"/>
-                                <include reference="j5A-05-AXd"/>
-                                <include reference="qYr-QC-tx4"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <navigationItem key="navigationItem" title="Sign In" id="lZF-si-9xl"/>
-                    <connections>
-                        <outlet property="signInTableView" destination="Bz4-67-KEE" id="Gqq-zC-Evq"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Lyc-aG-MVz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <connections>
+                            <outlet property="dataSource" destination="PTP-fI-YoR" id="m4W-6q-hVS"/>
+                            <outlet property="delegate" destination="PTP-fI-YoR" id="nNM-dG-39n"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RgM-GX-yz2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2527.5" y="432"/>
+            <point key="canvasLocation" x="2497.5" y="432"/>
         </scene>
         <!--Sign In StatusVC-->
         <scene sceneID="TRk-p9-dOI">
@@ -632,15 +589,16 @@
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
                                 <color key="textColor" red="0.30588235294117649" green="0.81568627450980391" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="96" y="51" width="208" height="21"/>
-                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="NM7-Q4-tzc" secondAttribute="trailing" constant="80" id="1FR-BK-Xs2"/>
-                            <constraint firstItem="NM7-Q4-tzc" firstAttribute="leading" secondItem="U2F-hm-5qF" secondAttribute="leadingMargin" constant="80" id="KRA-Cu-hTP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NM7-Q4-tzc" secondAttribute="trailing" constant="80" id="1FR-BK-Xs2">
+                                <variation key="heightClass=regular-widthClass=compact" constant="60"/>
+                            </constraint>
+                            <constraint firstItem="NM7-Q4-tzc" firstAttribute="leading" secondItem="U2F-hm-5qF" secondAttribute="leadingMargin" constant="80" id="KRA-Cu-hTP">
+                                <variation key="heightClass=regular-widthClass=compact" constant="60"/>
+                            </constraint>
                             <constraint firstItem="NM7-Q4-tzc" firstAttribute="top" secondItem="PcP-tm-Q1M" secondAttribute="bottom" constant="31" id="Sse-7V-M2j"/>
                         </constraints>
                         <variation key="default">
@@ -670,7 +628,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u2E-N2-87L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3165" y="432"/>
+            <point key="canvasLocation" x="3388.5" y="432"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="AZB-qA-bbR">
