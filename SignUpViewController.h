@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SignUpViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, NSURLConnectionDelegate>
+@interface SignUpViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *signupTableView;
 

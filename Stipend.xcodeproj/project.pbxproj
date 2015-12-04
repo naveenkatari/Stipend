@@ -11,6 +11,10 @@
 		D0DF9F891C0FFBBF00CCF6AA /* SignUpButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0DF9F871C0FFBBF00CCF6AA /* SignUpButtonCell.xib */; };
 		D0DF9F921C1023B600CCF6AA /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DF9F911C1023B600CCF6AA /* APIClient.m */; };
 		D0DF9F981C106D7200CCF6AA /* APIClient+SignUpAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DF9F971C106D7200CCF6AA /* APIClient+SignUpAPI.m */; };
+		D0DF9F9B1C11558A00CCF6AA /* APIClient+SignInAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DF9F9A1C11558A00CCF6AA /* APIClient+SignInAPI.m */; };
+		D0DF9F9E1C11576600CCF6AA /* UserDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DF9F9D1C11576600CCF6AA /* UserDetails.m */; };
+		D0DF9FA11C11601E00CCF6AA /* SignInStatusVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DF9FA01C11601E00CCF6AA /* SignInStatusVC.m */; };
+		D0DF9FA41C1191DD00CCF6AA /* APIClient+ForgotPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DF9FA31C1191DD00CCF6AA /* APIClient+ForgotPassword.m */; };
 		D0E535F01C05901C00C9CFA7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E535EF1C05901C00C9CFA7 /* main.m */; };
 		D0E535F31C05901C00C9CFA7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E535F21C05901C00C9CFA7 /* AppDelegate.m */; };
 		D0E535F61C05901C00C9CFA7 /* WelcomeScreenController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E535F51C05901C00C9CFA7 /* WelcomeScreenController.m */; };
@@ -71,6 +75,14 @@
 		D0DF9F911C1023B600CCF6AA /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
 		D0DF9F961C106D7200CCF6AA /* APIClient+SignUpAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "APIClient+SignUpAPI.h"; sourceTree = "<group>"; };
 		D0DF9F971C106D7200CCF6AA /* APIClient+SignUpAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "APIClient+SignUpAPI.m"; sourceTree = "<group>"; };
+		D0DF9F991C11558A00CCF6AA /* APIClient+SignInAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "APIClient+SignInAPI.h"; sourceTree = "<group>"; };
+		D0DF9F9A1C11558A00CCF6AA /* APIClient+SignInAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "APIClient+SignInAPI.m"; sourceTree = "<group>"; };
+		D0DF9F9C1C11576600CCF6AA /* UserDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetails.h; sourceTree = "<group>"; };
+		D0DF9F9D1C11576600CCF6AA /* UserDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetails.m; sourceTree = "<group>"; };
+		D0DF9F9F1C11601E00CCF6AA /* SignInStatusVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInStatusVC.h; sourceTree = "<group>"; };
+		D0DF9FA01C11601E00CCF6AA /* SignInStatusVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInStatusVC.m; sourceTree = "<group>"; };
+		D0DF9FA21C1191DD00CCF6AA /* APIClient+ForgotPassword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "APIClient+ForgotPassword.h"; sourceTree = "<group>"; };
+		D0DF9FA31C1191DD00CCF6AA /* APIClient+ForgotPassword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "APIClient+ForgotPassword.m"; sourceTree = "<group>"; };
 		D0E535EA1C05901C00C9CFA7 /* Stipend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stipend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0E535EE1C05901C00C9CFA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0E535EF1C05901C00C9CFA7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -161,8 +173,12 @@
 			children = (
 				D0DF9F901C1023B600CCF6AA /* APIClient.h */,
 				D0DF9F911C1023B600CCF6AA /* APIClient.m */,
+				D0DF9FA21C1191DD00CCF6AA /* APIClient+ForgotPassword.h */,
+				D0DF9FA31C1191DD00CCF6AA /* APIClient+ForgotPassword.m */,
 				D0DF9F961C106D7200CCF6AA /* APIClient+SignUpAPI.h */,
 				D0DF9F971C106D7200CCF6AA /* APIClient+SignUpAPI.m */,
+				D0DF9F991C11558A00CCF6AA /* APIClient+SignInAPI.h */,
+				D0DF9F9A1C11558A00CCF6AA /* APIClient+SignInAPI.m */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -170,6 +186,8 @@
 		D0E535E11C05901B00C9CFA7 = {
 			isa = PBXGroup;
 			children = (
+				D0DF9F9C1C11576600CCF6AA /* UserDetails.h */,
+				D0DF9F9D1C11576600CCF6AA /* UserDetails.m */,
 				D0DF9F8F1C10238000CCF6AA /* API */,
 				D0DF9F8A1C0FFD0700CCF6AA /* SignUpButtonCell */,
 				D0E7D5221C0EDDFF0099AACA /* ForgotPasswordVC */,
@@ -321,6 +339,8 @@
 			children = (
 				D0E7D4F51C0C4FEA0099AACA /* SignInViewController.h */,
 				D0E7D4F61C0C4FEA0099AACA /* SignInViewController.m */,
+				D0DF9F9F1C11601E00CCF6AA /* SignInStatusVC.h */,
+				D0DF9FA01C11601E00CCF6AA /* SignInStatusVC.m */,
 			);
 			name = SignIn;
 			sourceTree = "<group>";
@@ -507,12 +527,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0DF9FA11C11601E00CCF6AA /* SignInStatusVC.m in Sources */,
 				D0E7D5251C0EDE290099AACA /* ForgotPasswordViewController.m in Sources */,
 				D0DF9F921C1023B600CCF6AA /* APIClient.m in Sources */,
 				D0E7D5131C0D986F0099AACA /* SignInButtonCell.m in Sources */,
 				D0DF9F981C106D7200CCF6AA /* APIClient+SignUpAPI.m in Sources */,
 				D0E7D4F71C0C4FEA0099AACA /* SignInViewController.m in Sources */,
 				D0DF9F881C0FFBBF00CCF6AA /* SignUpButtonCell.m in Sources */,
+				D0DF9F9E1C11576600CCF6AA /* UserDetails.m in Sources */,
+				D0DF9F9B1C11558A00CCF6AA /* APIClient+SignInAPI.m in Sources */,
 				D0E7D5201C0EAB2D0099AACA /* NameViewCell.m in Sources */,
 				D0E7D4FE1C0D675A0099AACA /* EmailAddressCell.m in Sources */,
 				D0E7D4FA1C0C5C670099AACA /* SignUpViewController.m in Sources */,
@@ -520,6 +543,7 @@
 				D0E535F61C05901C00C9CFA7 /* WelcomeScreenController.m in Sources */,
 				D0E535F31C05901C00C9CFA7 /* AppDelegate.m in Sources */,
 				D0E535F01C05901C00C9CFA7 /* main.m in Sources */,
+				D0DF9FA41C1191DD00CCF6AA /* APIClient+ForgotPassword.m in Sources */,
 				D0E7D5181C0DA38D0099AACA /* Validations.m in Sources */,
 				D0E7D5031C0D76D20099AACA /* PasswordCell.m in Sources */,
 			);

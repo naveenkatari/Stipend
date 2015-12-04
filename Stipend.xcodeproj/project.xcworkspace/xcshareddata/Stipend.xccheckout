@@ -7,7 +7,7 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>2780FAFC-4AF8-4FD6-A937-585934886729</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>Stipend</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>2E854315CE34D63E65EFCD9488250E1F3C387A27</key>
@@ -16,7 +16,7 @@
 		<string>https://github.com/sourcebits-naveenk/Stipend.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Stipend.xcodeproj/project.xcworkspace</string>
+	<string>Stipend.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>2E854315CE34D63E65EFCD9488250E1F3C387A27</key>

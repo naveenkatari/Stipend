@@ -10,4 +10,8 @@
 
 @implementation APIClient (SignUpAPI)
 
+-(void) signUpWithUserDetails:(NSDictionary *)parameters WithCompletionHandler:(void (^)(NSDictionary *, NSURLResponse *, NSError *))completionHandler
+{
+    [self POST:@"userSignUp" withParameters:parameters withCompletionHandler:completionHandler];
+}
 @end

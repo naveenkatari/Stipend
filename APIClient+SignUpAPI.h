@@ -10,6 +10,6 @@
 
 @interface APIClient (SignUpAPI)
 
--(void) sendSinUpDetails
+-(void)signUpWithUserDetails:(NSDictionary *)parameters WithCompletionHandler:(void(^)(NSDictionary *responseData, NSURLResponse *response, NSError *error))completionHandler;
 
 @end

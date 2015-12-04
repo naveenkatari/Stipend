@@ -7,6 +7,8 @@
 //
 
 #import "ForgotPasswordViewController.h"
+#import "APIClient.h"
+#import "APIClient+ForgotPassword.h"
 
 @interface ForgotPasswordViewController ()
 
@@ -40,4 +42,18 @@
 }
 */
 
+- (IBAction)sendForgotPasswordLinkButton:(id)sender
+{
+    NSMutableDictionary *userEmailDictionary = [[NSMutableDictionary alloc]init];
+    [userEmailDictionary setObject:self.emailAddressTextField.text forKey:@"emailId"];
+    [self forgotPasswordDetailsResponse:@"POST" withParameters:userEmailDictionary];
+    
+}
+-(void) forgotPasswordDetailsResponse : (NSString *)method withParameters: (NSMutableDictionary *)parameters
+{
+    [[APIClient sharedAPIClient] forgotPasswordOfUser:parameters WithCompletionHandler:^(NSDictionary *responseData, NSURLResponse *response, NSError *error)
+    {
+        NSLog(@"Server Response %@", responseData);
+    }];
+}
 @end

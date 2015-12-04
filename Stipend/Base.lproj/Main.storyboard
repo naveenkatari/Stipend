@@ -329,6 +329,7 @@
                                         <fragment content="Privacy Policy">
                                             <attributes>
                                                 <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                                <integer key="NSUnderline" value="1"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -367,9 +368,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="199" y="751" width="26" height="29"/>
-                                </variation>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EJc-TL-sPh">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -618,6 +616,62 @@
             </objects>
             <point key="canvasLocation" x="2527.5" y="432"/>
         </scene>
+        <!--Sign In StatusVC-->
+        <scene sceneID="TRk-p9-dOI">
+            <objects>
+                <viewController storyboardIdentifier="SignedInVC" id="QUW-yZ-suE" customClass="SignInStatusVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PcP-tm-Q1M"/>
+                        <viewControllerLayoutGuide type="bottom" id="W7h-gr-PkN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="U2F-hm-5qF">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signed In Successfully!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NM7-Q4-tzc">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                <color key="textColor" red="0.30588235294117649" green="0.81568627450980391" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="96" y="51" width="208" height="21"/>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="NM7-Q4-tzc" secondAttribute="trailing" constant="80" id="1FR-BK-Xs2"/>
+                            <constraint firstItem="NM7-Q4-tzc" firstAttribute="leading" secondItem="U2F-hm-5qF" secondAttribute="leadingMargin" constant="80" id="KRA-Cu-hTP"/>
+                            <constraint firstItem="NM7-Q4-tzc" firstAttribute="top" secondItem="PcP-tm-Q1M" secondAttribute="bottom" constant="31" id="Sse-7V-M2j"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="NM7-Q4-tzc"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="1FR-BK-Xs2"/>
+                                <exclude reference="KRA-Cu-hTP"/>
+                                <exclude reference="Sse-7V-M2j"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="NM7-Q4-tzc"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="1FR-BK-Xs2"/>
+                                <include reference="KRA-Cu-hTP"/>
+                                <include reference="Sse-7V-M2j"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="signInSuccessfulLabel" destination="NM7-Q4-tzc" id="05y-r2-sHc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u2E-N2-87L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3165" y="432"/>
+        </scene>
         <!--Sign Up-->
         <scene sceneID="AZB-qA-bbR">
             <objects>
@@ -763,6 +817,9 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="sendForgotPasswordLinkButton:" destination="sDV-wR-ObD" eventType="touchUpInside" id="x7U-Mm-PgJ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -795,20 +852,20 @@
                                 <exclude reference="szG-RE-yfA"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="U9M-DG-p18"/>
-                                <exclude reference="gqR-42-q2H"/>
-                                <exclude reference="oIO-QB-0u5"/>
-                                <exclude reference="dUs-pK-LD7"/>
-                                <exclude reference="x6Q-ed-001"/>
                                 <exclude reference="59G-bl-rkL"/>
                                 <exclude reference="HZS-8T-svA"/>
                                 <exclude reference="Xsh-an-yJg"/>
-                                <exclude reference="Y9u-vM-4Kb"/>
-                                <exclude reference="hku-Cr-xgf"/>
-                                <exclude reference="hpD-Tf-WLF"/>
+                                <exclude reference="dUs-pK-LD7"/>
+                                <exclude reference="x6Q-ed-001"/>
                                 <exclude reference="3dF-oe-uwf"/>
                                 <exclude reference="IDV-DJ-6EE"/>
                                 <exclude reference="Ymz-GW-eI3"/>
+                                <exclude reference="U9M-DG-p18"/>
+                                <exclude reference="gqR-42-q2H"/>
+                                <exclude reference="oIO-QB-0u5"/>
+                                <exclude reference="Y9u-vM-4Kb"/>
+                                <exclude reference="hku-Cr-xgf"/>
+                                <exclude reference="hpD-Tf-WLF"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -820,23 +877,26 @@
                                 <include reference="szG-RE-yfA"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="U9M-DG-p18"/>
-                                <include reference="gqR-42-q2H"/>
-                                <include reference="oIO-QB-0u5"/>
-                                <include reference="dUs-pK-LD7"/>
-                                <include reference="x6Q-ed-001"/>
                                 <include reference="59G-bl-rkL"/>
                                 <include reference="HZS-8T-svA"/>
                                 <include reference="Xsh-an-yJg"/>
-                                <include reference="Y9u-vM-4Kb"/>
-                                <include reference="hku-Cr-xgf"/>
-                                <include reference="hpD-Tf-WLF"/>
+                                <include reference="dUs-pK-LD7"/>
+                                <include reference="x6Q-ed-001"/>
                                 <include reference="3dF-oe-uwf"/>
                                 <include reference="IDV-DJ-6EE"/>
                                 <include reference="Ymz-GW-eI3"/>
+                                <include reference="U9M-DG-p18"/>
+                                <include reference="gqR-42-q2H"/>
+                                <include reference="oIO-QB-0u5"/>
+                                <include reference="Y9u-vM-4Kb"/>
+                                <include reference="hku-Cr-xgf"/>
+                                <include reference="hpD-Tf-WLF"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="emailAddressTextField" destination="MVE-Oa-Iok" id="mIh-9v-zyP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aIE-K0-Ek8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

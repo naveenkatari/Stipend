@@ -35,7 +35,7 @@
                                     <action selector="lastNameTextField:" destination="WqP-JO-HcC" eventType="editingDidBegin" id="YV5-b1-fXO"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ktf-42-xQo">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LAST NAME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ktf-42-xQo">
                                 <rect key="frame" x="15" y="18" width="120" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="9E7-Kf-5DQ"/>
@@ -80,7 +80,7 @@
                                     <action selector="firstNameTextField:" destination="WqP-JO-HcC" eventType="editingDidBegin" id="iSN-JD-2qj"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9W-Qz-iMe">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FIRST NAME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9W-Qz-iMe">
                                 <rect key="frame" x="15" y="19" width="120" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="Pfs-Hh-esE"/>

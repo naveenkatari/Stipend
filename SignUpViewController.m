@@ -12,12 +12,14 @@
 #import "PasswordCell.h"
 #import "SignUpButtonCell.h"
 #import "Validations.h"
+#import "APIClient+SignUpAPI.h"
+#import "APIClient.h"
 
 @interface SignUpViewController ()
 {
     Validations *validations;
-    NSMutableDictionary *userSignUpDetailsDictionary;
     NSMutableData *mutableData;
+    UITextField *activeTextField;
 }
 
 @end
@@ -108,7 +110,6 @@
 {
     
     validations = [[Validations alloc]init];
-    userSignUpDetailsDictionary = [[NSMutableDictionary alloc]init];
     EmailAddressCell *emailCell = (EmailAddressCell *)[self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
     PasswordCell *passwordCell = (PasswordCell *)[self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
     PasswordCell *passwordCell1 = (PasswordCell *)[self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
@@ -121,117 +122,40 @@
         emailCell.emailAddressLabel.text = @"Enter valid email address";
         emailCell.emailAddressLabel.textColor = [UIColor redColor];
     }
-//    else
-//    {
-//        emailCell.emailAddressLabel.text = @"";
-//    }
-    
-    //Password validation
+
     else if(![validations validatePassword:password])
     {
         passwordCell.passwordLabel.text = @"Enter correct password";
         passwordCell.passwordLabel.textColor = [UIColor redColor];
     }
-//    else {
-//        passwordCell.passwordLabel.text = @"";
-//    }
-    //Confirm password validation
+
     else if(![passwordCell.passwordTextField.text isEqualToString:passwordCell1.passwordTextField.text])
     {
         passwordCell1.passwordLabel.text = @"Passwords doesn't match";
         passwordCell1.passwordLabel.textColor = [UIColor redColor];
     }
-//    else{
-//        passwordCell1.passwordLabel.text = @"";
-//    }
+
     else {
-    [userSignUpDetailsDictionary setObject:emailCell.emailAddressTextfield.text forKey:@"emailID"];
+        NSMutableDictionary *userSignUpDetailsDictionary = [[NSMutableDictionary alloc]init];
+    [userSignUpDetailsDictionary setObject:emailCell.emailAddressTextfield.text forKey:@"emailId"];
     [userSignUpDetailsDictionary setObject:nameCell.firstNameTextField.text forKey:@"firstName"];
     [userSignUpDetailsDictionary setObject:nameCell.lastNameTextField.text forKey:@"lastName"];
     [userSignUpDetailsDictionary setObject:passwordCell.passwordTextField.text forKey:@"password"];
          passwordCell.passwordLabel.text = @"";
          emailCell.emailAddressLabel.text = @"";
          passwordCell1.passwordLabel.text = @"";
-        [self sendSignUpDetailsToServer:@"POST" withParameters: userSignUpDetailsDictionary];
+        [self getSignUpResponseFromServer:@"POST" withParameters: userSignUpDetailsDictionary];
     }
 
 }
 
--(void) sendSignUpDetailsToServer : (NSString *)method withParameters: (NSMutableDictionary *)parameters
+-(void) getSignUpResponseFromServer : (NSString *)method withParameters: (NSMutableDictionary *)parameters
 {
     
-    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
-
-    NSMutableURLRequest *urlRequest;
-    NSString *urlString = @"http://mystipendappelasticloadbalancer-178615218.us-west-2.elb.amazonaws.com:8080/Stipend/userSignUp";
-    if([method isEqualToString:@"POST"])
-    {
-        NSURL *url = [NSURL URLWithString:urlString];
-        urlRequest = [NSMutableURLRequest requestWithURL: url];
-        urlRequest = [NSMutableURLRequest requestWithURL:url];
-        
-        NSData *signUpData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:nil];
-        [urlRequest setHTTPBody:signUpData];
-        [urlRequest setHTTPMethod:@"POST"];
-        [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    }
     
-    
-    
-    
-    NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest :urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        //Handle your response here
-        if(!error)
-        {
-            [[UIApplication sharedApplication]setNetworkActivityIndicatorVisible:YES];
-            NSString *requestReply = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
-            NSLog(@"requestReply: %@", requestReply);
-        }
-    }];
-    [dataTask resume];
+    [[APIClient sharedAPIClient] signUpWithUserDetails:parameters WithCompletionHandler:^(NSDictionary *responseData, NSURLResponse *response, NSError *error)
+     {
+         NSLog(@"Server Response %@", responseData);
+     }];
 }
-
-    
-        /*************************************************/
-    
-//    if([method isEqualToString:@"POST"])
-//    {
-//        url = [NSURL URLWithString: @"http://mystipendappelasticloadbalancer-178615218.us-west-2.elb.amazonaws.com:8080/Stipend/userSignUp"];
-//        urlRequest = [NSMutableURLRequest requestWithURL:url];
-//        NSData *signUpData = [NSJSONSerialization dataWithJSONObject:userSignUpDetailsDictionary options:0 error:nil];
-//        [urlRequest setHTTPBody:signUpData];
-//        }
-//    [urlRequest setHTTPMethod:@"POST"];
-//    NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:urlRequest delegate:self];
-//    if(connection)
-//    {
-//        mutableData = [NSMutableData new];
-//    }
-//    else{
-//        NSLog(@"No connection");
-//    }
-//}
-//-(void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-//{
-//    [mutableData setLength:0];
-//}
-//-(void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-//{
-//    [mutableData appendData:data];
-//}
-//-(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-//{
-//    NSLog(@"Error Code : -1");
-//    NSLog(@"Status : Not Valid attributes");
-//}
-//- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-//    
-//    NSString *responseStringWithEncoded = [[NSString alloc] initWithData: mutableData encoding:NSUTF8StringEncoding];
-//    //NSLog(@"Response from Server : %@", responseStringWithEncoded);
-//    NSAttributedString * attrStr = [[NSAttributedString alloc] initWithData:[responseStringWithEncoded dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
-//    NSLog(@"Response from Server : %@", attrStr);
-//    
-//}
-/*************************************************/
 @end

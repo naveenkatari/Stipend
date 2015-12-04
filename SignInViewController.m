@@ -10,6 +10,9 @@
 #import "EmailAddressCell.h"
 #import "ForgotPasswordViewController.h"
 #import "Validations.h"
+#import "SignInStatusVC.h"
+#import "APIClient.h"
+#import "APIClient+SignInAPI.h"
 
 @interface SignInViewController ()
 {
@@ -132,19 +135,25 @@
         emailCell.emailAddressLabel.text = @"Enter valid email address";
         emailCell.emailAddressLabel.textColor = [UIColor redColor];
     }
-    else 
-    {
-        emailCell.emailAddressLabel.text = @"";
-    }
-        
+//    else 
+//    {
+//        emailCell.emailAddressLabel.text = @"";
+//    }
+    
    //Password validation
-   if(![validations validatePassword:password])
+  else if(![validations validatePassword:password])
     {
         passwordCell.passwordLabel.text = @"Enter correct password";
         passwordCell.passwordLabel.textColor = [UIColor redColor];
     }
-    else {
+    else
+    {
+        NSMutableDictionary *userSignInDetailsDictionary = [[NSMutableDictionary alloc]init];
+        [userSignInDetailsDictionary setObject:emailCell.emailAddressTextfield.text forKey:@"emailId"];
+        [userSignInDetailsDictionary setObject:passwordCell.passwordTextField.text forKey:@"password"];
+        emailCell.emailAddressLabel.text = @"";
         passwordCell.passwordLabel.text =@"";
+        [self getSigninResponseFromServer: @"POST" withParameters:userSignInDetailsDictionary];
     }
 }
 -(void) forgetPasswordAction
@@ -153,18 +162,14 @@
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
-        
-
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void) getSigninResponseFromServer:(NSString *)method withParameters:(NSMutableDictionary *)parameters
+{
+    [[UIApplication sharedApplication]setNetworkActivityIndicatorVisible:YES];
+    
+    [[APIClient sharedAPIClient] loginWithUserDetails:parameters WithCompletionHandler:^(NSDictionary *responseData, NSURLResponse *response, NSError *error) {
+        NSLog(@"response data %@", responseData);
+        [[UIApplication sharedApplication]setNetworkActivityIndicatorVisible:NO];
+    }];
 }
-*/
 
 @end
