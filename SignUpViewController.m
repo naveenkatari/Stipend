@@ -14,6 +14,7 @@
 #import "Validations.h"
 #import "APIClient+SignUpAPI.h"
 #import "APIClient.h"
+#import "ActivityIndicatorView.h"
 
 @interface SignUpViewController ()
 {
@@ -156,10 +157,16 @@
 -(void) getSignUpResponseFromServer : (NSString *)method withParameters: (NSMutableDictionary *)parameters
 {
     
+    ActivityIndicatorView *activityView = [[NSBundle mainBundle] loadNibNamed:@"ActivityIndicatorView" owner:self options:nil][0];
+    [self.view addSubview:activityView];
+    activityView.center = self.view.center;
     
+    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
     [[APIClient sharedAPIClient] signUpWithUserDetails:parameters WithCompletionHandler:^(NSDictionary *responseData, NSURLResponse *response, NSError *error)
      {
          NSLog(@"Server Response %@", responseData);
+         [activityView setHidden:YES];
+         [[UIApplication sharedApplication]endIgnoringInteractionEvents];
      }];
 }
 -(void) setFirstNameTextFieldFirstResponder

@@ -9,6 +9,8 @@
 #import "ForgotPasswordViewController.h"
 #import "APIClient.h"
 #import "APIClient+ForgotPassword.h"
+#import "ActivityIndicatorView.h"
+#import "WelcomeScreenController.h"
 
 @interface ForgotPasswordViewController ()
 
@@ -51,14 +53,11 @@
 }
 -(void) forgotPasswordDetailsResponse : (NSString *)method withParameters: (NSMutableDictionary *)parameters
 {
-    __block UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc]
-                                                     initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    
-    activityView.center=self.view.center;
-    activityView.color = [UIColor colorWithRed:77.0f/255.0f green:208.0f/255.0f blue:225.0f/255.0f alpha:0.75f];
-    [activityView startAnimating];
+    ActivityIndicatorView *activityView = [[NSBundle mainBundle] loadNibNamed:@"ActivityIndicatorView" owner:self options:nil][0];
     [self.view addSubview:activityView];
-
+    activityView.center = self.view.center;
+    
+    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
     [[APIClient sharedAPIClient] forgotPasswordOfUser:parameters WithCompletionHandler:^(NSDictionary *responseData, NSURLResponse *response, NSError *error)
     {
         if ([[responseData objectForKey:@"ErrorCode" ]  isEqualToNumber:[ NSNumber numberWithLong:0 ] ])
@@ -72,11 +71,16 @@
         }
 
         NSLog(@"Server Response %@", responseData);
-        [activityView stopAnimating];
+        [activityView setHidden:YES];
+        [[UIApplication sharedApplication]endIgnoringInteractionEvents];
     }];
 }
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    
+    if (buttonIndex == 0)
+    {
+        WelcomeScreenController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"WelcomeScreen"];
+        [self showViewController:viewController sender:self];
+    }
 }
 @end
