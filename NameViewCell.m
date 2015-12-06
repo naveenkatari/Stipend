@@ -24,11 +24,18 @@
 {
     [self.firstNameLabel setHidden:NO];
     self.firstNameTextField.placeholder = nil;
+    if (self.firstNameTextFieldActionBlock) {
+        self.firstNameTextFieldActionBlock();
+    }
 }
 - (IBAction)lastNameTextField:(id)sender
 {
     [self.lastNameLabel setHidden:NO];
     self.lastNameTextField.placeholder = nil;
+    if (self.lastNameTextFieldActionBlock) {
+        self.lastNameTextFieldActionBlock();
+    }
+
 }
 
 @end

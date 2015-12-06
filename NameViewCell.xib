@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -10,21 +11,24 @@
             <rect key="frame" x="0.0" y="0.0" width="337" height="100"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WqP-JO-HcC" id="6cA-mu-zSG">
+                <rect key="frame" x="0.0" y="0.0" width="337" height="99"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zXs-1c-sTU" userLabel="RightView">
+                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zXs-1c-sTU" userLabel="RightView">
                         <rect key="frame" x="169" y="0.0" width="168" height="99"/>
                         <subviews>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zD1-H6-6jc" userLabel="UnderLineView">
                                 <rect key="frame" x="15" y="92" width="120" height="1"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.52169762639999995" green="0.53485552120000002" blue="0.53804219880000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="2" id="H62-jC-snR"/>
+                                    <constraint firstAttribute="height" constant="1" id="H62-jC-snR"/>
                                     <constraint firstAttribute="width" constant="120" id="vSX-Yt-SeB"/>
                                 </constraints>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W7z-rx-W6a">
-                                <rect key="frame" x="15" y="48" width="120" height="44"/>
+                                <rect key="frame" x="15" y="49" width="120" height="44"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="6AI-iz-Mc5"/>
                                     <constraint firstAttribute="width" constant="120" id="8dh-7x-UVA"/>
@@ -36,7 +40,8 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LAST NAME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ktf-42-xQo">
-                                <rect key="frame" x="15" y="18" width="120" height="14"/>
+                                <rect key="frame" x="15" y="19" width="120" height="14"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="9E7-Kf-5DQ"/>
                                 </constraints>
@@ -45,6 +50,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="W7z-rx-W6a" firstAttribute="leading" secondItem="zXs-1c-sTU" secondAttribute="leading" constant="15" id="9ad-1A-yCd"/>
@@ -57,19 +63,21 @@
                             <constraint firstAttribute="bottom" secondItem="zD1-H6-6jc" secondAttribute="bottom" constant="5" id="oZC-o3-DA0"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IKJ-Pw-9PT" userLabel="LeftView">
+                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IKJ-Pw-9PT" userLabel="LeftView">
                         <rect key="frame" x="0.0" y="0.0" width="169" height="99"/>
                         <subviews>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UBH-dC-r6G" userLabel="UnderLineView">
                                 <rect key="frame" x="15" y="92" width="139" height="1"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.52169762639999995" green="0.53485552120000002" blue="0.53804219880000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="4fU-us-ITm"/>
-                                    <constraint firstAttribute="height" constant="2" id="eBm-gf-Mly"/>
+                                    <constraint firstAttribute="height" constant="1" id="eBm-gf-Mly"/>
                                 </constraints>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mnw-Pv-sgh">
-                                <rect key="frame" x="15" y="48" width="120" height="44"/>
+                                <rect key="frame" x="15" y="49" width="120" height="44"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="45y-HB-NNM"/>
                                     <constraint firstAttribute="width" constant="120" id="o73-n9-0yf"/>
@@ -81,7 +89,8 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FIRST NAME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9W-Qz-iMe">
-                                <rect key="frame" x="15" y="19" width="120" height="14"/>
+                                <rect key="frame" x="15" y="20" width="120" height="14"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="Pfs-Hh-esE"/>
                                 </constraints>
@@ -90,6 +99,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="UBH-dC-r6G" secondAttribute="bottom" constant="5" id="5nb-wZ-x9b"/>
@@ -103,6 +113,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <animations/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="zXs-1c-sTU" secondAttribute="trailing" id="0wf-53-f6G"/>
                     <constraint firstItem="zXs-1c-sTU" firstAttribute="width" secondItem="IKJ-Pw-9PT" secondAttribute="width" id="4Gx-He-fqV"/>
@@ -114,11 +125,14 @@
                     <constraint firstItem="zXs-1c-sTU" firstAttribute="leading" secondItem="IKJ-Pw-9PT" secondAttribute="trailing" id="wMr-O8-t4M"/>
                 </constraints>
             </tableViewCellContentView>
+            <animations/>
             <connections>
                 <outlet property="firstNameLabel" destination="p9W-Qz-iMe" id="Hfs-74-uGU"/>
-                <outlet property="firstNameTextField" destination="mnw-Pv-sgh" id="bG1-Zy-sfr"/>
+                <outlet property="firstNameSeparatorView" destination="UBH-dC-r6G" id="v2Z-XH-ej6"/>
+                <outlet property="firstNameTextField" destination="mnw-Pv-sgh" id="zV5-qS-Qvm"/>
                 <outlet property="lastNameLabel" destination="Ktf-42-xQo" id="cpV-6y-Bjb"/>
-                <outlet property="lastNameTextField" destination="W7z-rx-W6a" id="EcW-SY-QzD"/>
+                <outlet property="lastNameSeparatorView" destination="zD1-H6-6jc" id="I0u-aW-zMW"/>
+                <outlet property="lastNameTextField" destination="W7z-rx-W6a" id="SHl-cT-sjR"/>
             </connections>
             <point key="canvasLocation" x="495.5" y="654"/>
         </tableViewCell>
