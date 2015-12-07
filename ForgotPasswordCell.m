@@ -12,6 +12,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    [self.signInStatusLabel setHidden:YES];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -22,6 +23,7 @@
 
 - (IBAction)forgotPasswordButton:(id)sender
 {
+//    [self.signInStatusLabel setHidden:NO];
     if(self.forgotPasswordBlock)
     {
         self.forgotPasswordBlock();

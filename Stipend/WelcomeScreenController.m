@@ -7,6 +7,8 @@
 //
 
 #import "WelcomeScreenController.h"
+#import "TermsandConditionsVC.h"
+#import "PrivacyPolicyVC.h"
 
 @interface WelcomeScreenController ()
 
@@ -31,5 +33,16 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)termsAndConditions:(id)sender
+{
+    TermsandConditionsVC *viewController = [self.navigationController.storyboard instantiateViewControllerWithIdentifier:@"TermsAndConditionsVC"];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+- (IBAction)privacyPolicy:(id)sender
+{
+    PrivacyPolicyVC *viewController = [self.navigationController.storyboard instantiateViewControllerWithIdentifier:@"PrivacyPolicyVC"];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
 
 @end

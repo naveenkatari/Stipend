@@ -61,13 +61,6 @@
     NameViewCell *cell = (NameViewCell *)[tableView dequeueReusableCellWithIdentifier:@"NameCell" forIndexPath:indexPath];
     cell.separatorInset = UIEdgeInsetsMake(0, 1000, 0, 0);
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        __weak SignUpViewController *weakSelf = self;
-        cell.firstNameTextFieldActionBlock = ^{
-            [weakSelf firstNameTextFieldAction];
-        };
-        cell.lastNameTextFieldActionBlock = ^{
-            [weakSelf lastNameTextFieldAction];
-        };
     return cell;
     }
    else if (indexPath.row == 1)
@@ -75,12 +68,6 @@
         EmailAddressCell *cell = (EmailAddressCell *)[tableView dequeueReusableCellWithIdentifier:@"EmailCell" forIndexPath:indexPath];
         cell.separatorInset = UIEdgeInsetsMake(0, 1000, 0, 0);
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-        __weak SignUpViewController *weakSelf = self;
-        cell.emailTextFieldActionBlock = ^{
-            [weakSelf emailTextFieldAction];
-        };
-
         return cell;
     }
     else if (indexPath.row == 2) {
@@ -96,7 +83,6 @@
         cell.passwordTextField.placeholder = @"Confirm Password";
         cell.passwordLabel.text = @"CONFIRM PASSWORD";
         return cell;
-        
     }
     else if (indexPath.row == 4)
     {
@@ -112,29 +98,12 @@
     }
     return nil;
 }
--(void) emailTextFieldAction
+-(void) forgotPasswordTextFieldAction
 {
-    
-    EmailAddressCell *emailCell = (EmailAddressCell *)[self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
-    emailCell.emailIDSeparatorView.backgroundColor = [UIColor colorWithRed:78.0f/255.0f green:208.0f/255.0f blue:225.0f/255.0f alpha:1];
+    PasswordCell *passwordCell1 = (PasswordCell *)[self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
+    passwordCell1.passwordSeparatorView.backgroundColor = [UIColor colorWithRed:78.0f/255.0f green:208.0f/255.0f blue:225.0f/255.0f alpha:1];
 }
--(void) firstNameTextFieldAction
-{
-    NameViewCell *nameCell = (NameViewCell *)[self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    nameCell.firstNameSeparatorView.backgroundColor = [UIColor colorWithRed:78.0f/255.0f green:208.0f/255.0f blue:225.0f/255.0f alpha:1];
 
-}
--(void) lastNameTextFieldAction
-{
-    NameViewCell *nameCell = (NameViewCell *)[self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    nameCell.lastNameSeparatorView.backgroundColor = [UIColor colorWithRed:78.0f/255.0f green:208.0f/255.0f blue:225.0f/255.0f alpha:1];
-}
-//-(void) passwordTextFieldAction
-//{
-//    PasswordCell *passwordCell = (PasswordCell *)[self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
-//    PasswordCell *passwordCell1 = (PasswordCell *)[self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
-//
-//}
 -(void) signUpAction
 {
     
@@ -148,19 +117,19 @@
     //Email Validation
     if(![validations validateEmail:emailID])
     {
-        emailCell.emailAddressLabel.text = @"Enter valid email address";
+        emailCell.emailAddressLabel.text = @"ENTER VALID EMAIL ADDRESS";
         emailCell.emailAddressLabel.textColor = [UIColor redColor];
     }
 
     else if(![validations validatePassword:password])
     {
-        passwordCell.passwordLabel.text = @"Enter correct password";
+        passwordCell.passwordLabel.text = @"ENTER CORRECT PASSWORD";
         passwordCell.passwordLabel.textColor = [UIColor redColor];
     }
 
     else if(![passwordCell.passwordTextField.text isEqualToString:passwordCell1.passwordTextField.text])
     {
-        passwordCell1.passwordLabel.text = @"Passwords doesn't match";
+        passwordCell1.passwordLabel.text = @"PASSWORDS DOESN'T MATCH";
         passwordCell1.passwordLabel.textColor = [UIColor redColor];
     }
 

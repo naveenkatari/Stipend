@@ -12,7 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *passwordLabel;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
-@property (nonatomic, strong) void (^passwordTextFieldActionBlock)();
 @property (weak, nonatomic) IBOutlet UIView *passwordSeparatorView;
 
 @end

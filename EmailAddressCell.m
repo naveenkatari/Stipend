@@ -12,27 +12,24 @@
 
 - (void)awakeFromNib {
     [self.emailAddressLabel setHidden:YES];
+    self.emailAddressTextfield.delegate =self;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
 }
 
 - (IBAction)emailAddressCell:(id)sender
 {
     [self.emailAddressLabel setHidden:NO];
     self.emailAddressTextfield.placeholder = nil;
-    if (self.emailTextFieldActionBlock) {
-        self.emailTextFieldActionBlock();
-    }
+    self.emailIDSeparatorView.backgroundColor = [UIColor colorWithRed:78.0f/255.0f green:208.0f/255.0f blue:225.0f/255.0f alpha:1];
 }
-//- (IBAction)emailTextFieldDidEndEditing:(id)sender
-//{
-//    if (self.emailTextFieldActionBlock) {
-//        self.emailTextFieldActionBlock();
-//    }
-//}
+
+- (IBAction)emailTextFieldDidEndEditing:(id)sender
+{
+    self.emailIDSeparatorView.backgroundColor = [UIColor colorWithRed:192.0f/255.0f green:192.0f/255.0f blue:192.0f/255.0f alpha:1];
+}
 
 @end

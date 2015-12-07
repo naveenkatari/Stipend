@@ -23,6 +23,7 @@
                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                         <connections>
                             <action selector="emailAddressCell:" destination="KGk-i7-Jjw" eventType="editingDidBegin" id="G4s-3B-3dI"/>
+                            <action selector="emailTextFieldDidEndEditing:" destination="KGk-i7-Jjw" eventType="editingDidEnd" id="06c-6v-uKb"/>
                         </connections>
                     </textField>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMAIL ADDRESS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Jn-A5-HB5">
@@ -31,9 +32,9 @@
                         <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6CC-hs-Ys3">
-                        <rect key="frame" x="23" y="90" width="267" height="1"/>
-                        <color key="backgroundColor" red="0.52169762641898865" green="0.53485552115583079" blue="0.53804219878740955" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6CC-hs-Ys3">
+                        <rect key="frame" x="23" y="84" width="267" height="1"/>
+                        <color key="backgroundColor" red="0.75294117647058822" green="0.75294117647058822" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="hVu-m3-fqX"/>
                         </constraints>

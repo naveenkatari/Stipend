@@ -29,6 +29,7 @@
 {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+     self.navigationItem.title = @"Sign In";
     
     [self.tableView registerNib:[UINib nibWithNibName:@"EmailAddressCell" bundle:nil] forCellReuseIdentifier:@"EmailCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"PasswordCell" bundle:nil] forCellReuseIdentifier:@"PasswordCell"];
@@ -68,11 +69,6 @@
         EmailAddressCell *cell = (EmailAddressCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier1 forIndexPath:indexPath];
          cell.separatorInset = UIEdgeInsetsMake(0, 1000, 0, 0);
          cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-        __weak SignInViewController *weakSelf = self;
-        cell.emailTextFieldActionBlock = ^{
-            [weakSelf emailTextFieldAction];
-        };
         return cell;
     } else if (indexPath.row == 1)
     {
@@ -80,11 +76,6 @@
         PasswordCell *cell = (PasswordCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier2 forIndexPath:indexPath];
          cell.separatorInset = UIEdgeInsetsMake(0, 1000, 0, 0);
          cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-        __weak SignInViewController *weakSelf = self;
-        cell.passwordTextFieldActionBlock = ^{
-            [weakSelf passwordTextFieldAction];
-        };
         return  cell;
     }
     else if (indexPath.row == 2)
@@ -116,18 +107,6 @@
     }
     return nil;
 }
--(void) emailTextFieldAction
-{
-    EmailAddressCell *emailCell = (EmailAddressCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    emailCell.emailIDSeparatorView.backgroundColor = [UIColor colorWithRed:78.0f/255.0f green:208.0f/255.0f blue:225.0f/255.0f alpha:1];
-}
--(void) passwordTextFieldAction
-{
-    
-    PasswordCell *passwordCell = (PasswordCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
-    passwordCell.passwordSeparatorView.backgroundColor = [UIColor colorWithRed:78.0f/255.0f green:208.0f/255.0f blue:225.0f/255.0f alpha:1];
-    
-}
 
 -(void) signInAction
 {
@@ -141,14 +120,14 @@
     //Email Validation
     if(![validations validateEmail:emailID])
     {
-        emailCell.emailAddressLabel.text = @"Enter valid email address";
+        emailCell.emailAddressLabel.text = @"ENTER VALID EMAIL ADDRESS";
         emailCell.emailAddressLabel.textColor = [UIColor redColor];
     }
     
    //Password validation
   else if(![validations validatePassword:password])
     {
-        passwordCell.passwordLabel.text = @"Enter correct password";
+        passwordCell.passwordLabel.text = @"ENTER CORRECT PASSWORD";
         passwordCell.passwordLabel.textColor = [UIColor redColor];
     }
     else
@@ -179,6 +158,13 @@
         if ( [[responseData objectForKey:@"ErrorCode" ]  isEqualToNumber:[ NSNumber numberWithLong:0 ] ] ) {
             SignInStatusVC *signInVC = [self.navigationController.storyboard instantiateViewControllerWithIdentifier:@"SignedInVC"];
             [self.navigationController pushViewController:signInVC animated:YES];
+        }
+        else
+        {
+            ForgotPasswordCell *cell = (ForgotPasswordCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+            [cell.signInStatusLabel setHidden:NO];
+            cell.signInStatusLabel.text = @"NOT VALID EMAILID and PASSWORD";
+            
         }
         NSLog(@"response data %@", responseData);
         [activityView setHidden:YES];

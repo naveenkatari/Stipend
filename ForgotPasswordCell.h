@@ -12,5 +12,6 @@
 
 - (IBAction)forgotPasswordButton:(id)sender;
 @property (nonatomic, strong) void (^forgotPasswordBlock)();
+@property (weak, nonatomic) IBOutlet UILabel *signInStatusLabel;
 
 @end

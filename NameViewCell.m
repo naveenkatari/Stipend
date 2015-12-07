@@ -23,18 +23,23 @@
 - (IBAction)firstNameTextField:(id)sender
 {
     [self.firstNameLabel setHidden:NO];
+    self.firstNameSeparatorView.backgroundColor = [UIColor colorWithRed:78.0f/255.0f green:208.0f/255.0f blue:225.0f/255.0f alpha:1];
     self.firstNameTextField.placeholder = nil;
-    if (self.firstNameTextFieldActionBlock) {
-        self.firstNameTextFieldActionBlock();
-    }
 }
+- (IBAction)firstNameTextFieldEditingDidEnd:(id)sender
+{
+    self.firstNameSeparatorView.backgroundColor = [UIColor colorWithRed:192.0f/255.0f green:192.0f/255.0f blue:192.0f/255.0f alpha:1];
+}
+
 - (IBAction)lastNameTextField:(id)sender
 {
     [self.lastNameLabel setHidden:NO];
     self.lastNameTextField.placeholder = nil;
-    if (self.lastNameTextFieldActionBlock) {
-        self.lastNameTextFieldActionBlock();
-    }
+    self.lastNameSeparatorView.backgroundColor = [UIColor colorWithRed:78.0f/255.0f green:208.0f/255.0f blue:225.0f/255.0f alpha:1];
+}
+- (IBAction)lastNameTextFieldEditingDidEnd:(id)sender
+{
+    self.lastNameSeparatorView.backgroundColor = [UIColor colorWithRed:192.0f/255.0f green:192.0f/255.0f blue:192.0f/255.0f alpha:1];
 
 }
 

@@ -17,11 +17,7 @@
     return [emailValidation evaluateWithObject:emailToValidate];
 }
 -(BOOL) validatePassword:(NSString *)passwordToValidate
-{
-//    NSString *regexForPassword = @"[a-zA-Z0-9]+";
-//    NSPredicate *passwordValidation = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regexForPassword];
-//    return [passwordValidation evaluateWithObject:passwordToValidate];
-    NSError *error = NULL;
+{    NSError *error = NULL;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^(?=.*[a-z])(?=.*\\d)[a-z\\d]*$"
                                                                            options:NSRegularExpressionCaseInsensitive
                                                                              error:&error];

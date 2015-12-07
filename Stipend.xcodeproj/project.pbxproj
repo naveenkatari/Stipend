@@ -16,6 +16,8 @@
 		D0DF9FA41C1191DD00CCF6AA /* APIClient+ForgotPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DF9FA31C1191DD00CCF6AA /* APIClient+ForgotPassword.m */; };
 		D0DF9FAC1C11C11200CCF6AA /* ActivityIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0DF9FAB1C11C11200CCF6AA /* ActivityIndicatorView.xib */; };
 		D0DF9FAF1C11C19400CCF6AA /* ActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DF9FAE1C11C19400CCF6AA /* ActivityIndicatorView.m */; };
+		D0DF9FB31C15908C00CCF6AA /* TermsandConditionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DF9FB21C15908C00CCF6AA /* TermsandConditionsVC.m */; };
+		D0DF9FB61C1590A200CCF6AA /* PrivacyPolicyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DF9FB51C1590A200CCF6AA /* PrivacyPolicyVC.m */; };
 		D0E535F01C05901C00C9CFA7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E535EF1C05901C00C9CFA7 /* main.m */; };
 		D0E535F31C05901C00C9CFA7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E535F21C05901C00C9CFA7 /* AppDelegate.m */; };
 		D0E535F61C05901C00C9CFA7 /* WelcomeScreenController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E535F51C05901C00C9CFA7 /* WelcomeScreenController.m */; };
@@ -85,6 +87,10 @@
 		D0DF9FAB1C11C11200CCF6AA /* ActivityIndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityIndicatorView.xib; sourceTree = "<group>"; };
 		D0DF9FAD1C11C19400CCF6AA /* ActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityIndicatorView.h; sourceTree = "<group>"; };
 		D0DF9FAE1C11C19400CCF6AA /* ActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityIndicatorView.m; sourceTree = "<group>"; };
+		D0DF9FB11C15908C00CCF6AA /* TermsandConditionsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsandConditionsVC.h; sourceTree = "<group>"; };
+		D0DF9FB21C15908C00CCF6AA /* TermsandConditionsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsandConditionsVC.m; sourceTree = "<group>"; };
+		D0DF9FB41C1590A200CCF6AA /* PrivacyPolicyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivacyPolicyVC.h; sourceTree = "<group>"; };
+		D0DF9FB51C1590A200CCF6AA /* PrivacyPolicyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivacyPolicyVC.m; sourceTree = "<group>"; };
 		D0E535EA1C05901C00C9CFA7 /* Stipend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stipend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0E535EE1C05901C00C9CFA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0E535EF1C05901C00C9CFA7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -213,9 +219,21 @@
 			path = ActivityIndicatorView;
 			sourceTree = "<group>";
 		};
+		D0DF9FB01C15905800CCF6AA /* Terms and Conditions */ = {
+			isa = PBXGroup;
+			children = (
+				D0DF9FB11C15908C00CCF6AA /* TermsandConditionsVC.h */,
+				D0DF9FB21C15908C00CCF6AA /* TermsandConditionsVC.m */,
+				D0DF9FB41C1590A200CCF6AA /* PrivacyPolicyVC.h */,
+				D0DF9FB51C1590A200CCF6AA /* PrivacyPolicyVC.m */,
+			);
+			name = "Terms and Conditions";
+			sourceTree = "<group>";
+		};
 		D0E535E11C05901B00C9CFA7 = {
 			isa = PBXGroup;
 			children = (
+				D0DF9FB01C15905800CCF6AA /* Terms and Conditions */,
 				D0DF9FA91C11C0F100CCF6AA /* Views */,
 				D0DF9FA71C11AFAC00CCF6AA /* Welcome Screen */,
 				D0DF9F8F1C10238000CCF6AA /* API */,
@@ -565,11 +583,13 @@
 				D0E7D4F71C0C4FEA0099AACA /* SignInViewController.m in Sources */,
 				D0DF9F881C0FFBBF00CCF6AA /* SignUpButtonCell.m in Sources */,
 				D0DF9F9B1C11558A00CCF6AA /* APIClient+SignInAPI.m in Sources */,
+				D0DF9FB61C1590A200CCF6AA /* PrivacyPolicyVC.m in Sources */,
 				D0E7D5201C0EAB2D0099AACA /* NameViewCell.m in Sources */,
 				D0E7D4FE1C0D675A0099AACA /* EmailAddressCell.m in Sources */,
 				D0E7D4FA1C0C5C670099AACA /* SignUpViewController.m in Sources */,
 				D0E7D50D1C0D945D0099AACA /* ForgotPasswordCell.m in Sources */,
 				D0E535F61C05901C00C9CFA7 /* WelcomeScreenController.m in Sources */,
+				D0DF9FB31C15908C00CCF6AA /* TermsandConditionsVC.m in Sources */,
 				D0E535F31C05901C00C9CFA7 /* AppDelegate.m in Sources */,
 				D0E535F01C05901C00C9CFA7 /* main.m in Sources */,
 				D0DF9FA41C1191DD00CCF6AA /* APIClient+ForgotPassword.m in Sources */,

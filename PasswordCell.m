@@ -18,15 +18,16 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
 }
 
 - (IBAction)passwordTextfieldDidBeginEditing:(id)sender
 {
     [self.passwordLabel setHidden:NO];
     self.passwordTextField.placeholder = nil;
-    if(self.passwordTextFieldActionBlock){
-        self.passwordTextFieldActionBlock();
-    }
+    self.passwordSeparatorView.backgroundColor = [UIColor colorWithRed:78.0f/255.0f green:208.0f/255.0f blue:225.0f/255.0f alpha:1];
+}
+- (IBAction)passwordTextFieldDidEndEditing:(id)sender
+{
+     self.passwordSeparatorView.backgroundColor = [UIColor colorWithRed:192.0f/255.0f green:192.0f/255.0f blue:192.0f/255.0f alpha:1];
 }
 @end

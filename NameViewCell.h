@@ -16,7 +16,5 @@
 @property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
 @property (weak, nonatomic) IBOutlet UIView *firstNameSeparatorView;
 @property (weak, nonatomic) IBOutlet UIView *lastNameSeparatorView;
-@property (nonatomic, strong) void (^firstNameTextFieldActionBlock)();
-@property (nonatomic, strong) void (^lastNameTextFieldActionBlock)();
 
 @end
