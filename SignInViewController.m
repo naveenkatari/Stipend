@@ -163,7 +163,7 @@
         {
             ForgotPasswordCell *cell = (ForgotPasswordCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
             [cell.signInStatusLabel setHidden:NO];
-            cell.signInStatusLabel.text = @"NOT VALID EMAILID and PASSWORD";
+            cell.signInStatusLabel.text = @"NOT VALID EMAILID AND PASSWORD";
             
         }
         NSLog(@"response data %@", responseData);
