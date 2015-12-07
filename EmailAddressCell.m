@@ -30,6 +30,10 @@
 - (IBAction)emailTextFieldDidEndEditing:(id)sender
 {
     self.emailIDSeparatorView.backgroundColor = [UIColor colorWithRed:192.0f/255.0f green:192.0f/255.0f blue:192.0f/255.0f alpha:1];
+    if ([self.emailAddressTextfield.text isEqualToString:@""]) {
+        self.emailAddressTextfield.placeholder = @"Email Address";
+        self.emailAddressLabel.text = @"";
+    }
 }
 
 @end

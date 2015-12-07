@@ -28,7 +28,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="3e7-cJ-IYP"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="firstNameTextField:" destination="WqP-JO-HcC" eventType="editingDidBegin" id="Ybx-PQ-o8O"/>
@@ -69,7 +70,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="uZN-V5-Sfb"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="lastNameTextField:" destination="WqP-JO-HcC" eventType="editingDidBegin" id="Ptg-9E-eu1"/>

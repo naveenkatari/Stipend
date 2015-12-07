@@ -29,6 +29,10 @@
 - (IBAction)firstNameTextFieldEditingDidEnd:(id)sender
 {
     self.firstNameSeparatorView.backgroundColor = [UIColor colorWithRed:192.0f/255.0f green:192.0f/255.0f blue:192.0f/255.0f alpha:1];
+    if ([self.firstNameTextField.text isEqualToString:@""]) {
+        self.firstNameTextField.placeholder = @"First Name";
+        self.firstNameLabel.text = @"";
+    }
 }
 
 - (IBAction)lastNameTextField:(id)sender
@@ -40,6 +44,10 @@
 - (IBAction)lastNameTextFieldEditingDidEnd:(id)sender
 {
     self.lastNameSeparatorView.backgroundColor = [UIColor colorWithRed:192.0f/255.0f green:192.0f/255.0f blue:192.0f/255.0f alpha:1];
+    if ([self.lastNameTextField.text isEqualToString:@""]) {
+        self.lastNameTextField.placeholder = @"First Name";
+        self.lastNameLabel.text = @"";
+    }
 
 }
 

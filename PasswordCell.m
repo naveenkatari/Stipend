@@ -29,5 +29,9 @@
 - (IBAction)passwordTextFieldDidEndEditing:(id)sender
 {
      self.passwordSeparatorView.backgroundColor = [UIColor colorWithRed:192.0f/255.0f green:192.0f/255.0f blue:192.0f/255.0f alpha:1];
+    if ([self.passwordTextField.text isEqualToString:@""]) {
+        self.passwordTextField.placeholder = @"Password";
+        self.passwordLabel.text = @"";
+    }
 }
 @end

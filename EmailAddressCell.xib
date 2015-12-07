@@ -14,12 +14,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0J5-iD-vcZ">
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0J5-iD-vcZ">
                         <rect key="frame" x="23" y="40" width="267" height="44"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="44" id="Lag-7A-Ss0"/>
                         </constraints>
-                        <attributedString key="attributedText"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="18"/>
                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                         <connections>
                             <action selector="emailAddressCell:" destination="KGk-i7-Jjw" eventType="editingDidBegin" id="G4s-3B-3dI"/>
