@@ -859,20 +859,32 @@
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
                                 <color key="textColor" red="0.30588235294117649" green="0.81568627450980391" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="83" width="308" height="25"/>
-                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qA0-uc-6Wt" firstAttribute="top" secondItem="maL-Oi-eag" secondAttribute="bottom" constant="30" id="EaZ-bT-8Ah"/>
+                            <constraint firstItem="qA0-uc-6Wt" firstAttribute="leading" secondItem="StM-EU-QbS" secondAttribute="leadingMargin" id="Ekp-vC-TDu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qA0-uc-6Wt" secondAttribute="trailing" constant="10" id="hak-hq-3Ik"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="qA0-uc-6Wt"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="EaZ-bT-8Ah"/>
+                                <exclude reference="Ekp-vC-TDu"/>
+                                <exclude reference="hak-hq-3Ik"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="qA0-uc-6Wt"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="EaZ-bT-8Ah"/>
+                                <include reference="Ekp-vC-TDu"/>
+                                <include reference="hak-hq-3Ik"/>
                             </mask>
                         </variation>
                     </view>
@@ -882,7 +894,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="knG-mU-1Xf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4009.5" y="360"/>
+            <point key="canvasLocation" x="3859" y="432"/>
         </scene>
         <!--Privacy Policy-->
         <scene sceneID="JBD-Vd-bNZ">

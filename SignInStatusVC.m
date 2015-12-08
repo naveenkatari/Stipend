@@ -12,6 +12,7 @@
 @implementation SignInStatusVC
 -(void) viewDidLoad
 {
+    [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
     self.navigationItem.title = @"Stipend";
     UserDetails *userDetails = [UserDetails sharedUserDetails];
