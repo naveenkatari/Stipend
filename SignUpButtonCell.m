@@ -11,7 +11,7 @@
 @implementation SignUpButtonCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    [self.signUpErrorValidationLabel setHidden:YES];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

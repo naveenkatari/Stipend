@@ -12,5 +12,6 @@
 
 - (IBAction)signUpButton:(id)sender;
 @property (nonatomic, strong) void (^signUpActionBlock)();
+@property (weak, nonatomic) IBOutlet UILabel *signUpErrorValidationLabel;
 
 @end

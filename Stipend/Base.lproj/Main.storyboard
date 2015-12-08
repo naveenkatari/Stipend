@@ -795,7 +795,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signed In Successfully!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NM7-Q4-tzc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signed In as" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NM7-Q4-tzc">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
@@ -807,10 +807,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="NM7-Q4-tzc" secondAttribute="trailing" constant="80" id="1FR-BK-Xs2">
-                                <variation key="heightClass=regular-widthClass=compact" constant="60"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="30"/>
                             </constraint>
                             <constraint firstItem="NM7-Q4-tzc" firstAttribute="leading" secondItem="U2F-hm-5qF" secondAttribute="leadingMargin" constant="80" id="KRA-Cu-hTP">
-                                <variation key="heightClass=regular-widthClass=compact" constant="60"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="30"/>
                             </constraint>
                             <constraint firstItem="NM7-Q4-tzc" firstAttribute="top" secondItem="PcP-tm-Q1M" secondAttribute="bottom" constant="31" id="Sse-7V-M2j"/>
                         </constraints>
@@ -842,6 +842,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u2E-N2-87L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3388.5" y="432"/>
+        </scene>
+        <!--Sign Up StatusVC-->
+        <scene sceneID="iBg-Gp-NoU">
+            <objects>
+                <viewController storyboardIdentifier="SignUpStatusVC" id="nsF-E3-2VV" customClass="SignUpStatusVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="maL-Oi-eag"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gjn-wS-CP1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="StM-EU-QbS">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signed Up for College Hunch Successfully" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qA0-uc-6Wt">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                <color key="textColor" red="0.30588235294117649" green="0.81568627450980391" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="83" width="308" height="25"/>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="qA0-uc-6Wt"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="qA0-uc-6Wt"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="signUpSuccessLabel" destination="qA0-uc-6Wt" id="hbl-I6-8Y9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="knG-mU-1Xf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4009.5" y="360"/>
         </scene>
         <!--Privacy Policy-->
         <scene sceneID="JBD-Vd-bNZ">
@@ -890,7 +931,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Yv-Su-97v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1002" y="1107"/>
+            <point key="canvasLocation" x="976.5" y="1187.25"/>
         </scene>
         <!--Terms & Conditions-->
         <scene sceneID="lVE-4I-alP">
@@ -1184,10 +1225,11 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7tM-mO-dWk" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iwo-28-TBU">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" backIndicatorTransitionMaskImage="ic_back.png" id="iwo-28-TBU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
@@ -1206,5 +1248,6 @@
         <image name="about-logo.png" width="252" height="210"/>
         <image name="connect-fb.png" width="30" height="30"/>
         <image name="connect-tw.png" width="31" height="30"/>
+        <image name="ic_back.png" width="22" height="21"/>
     </resources>
 </document>

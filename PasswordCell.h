@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PasswordCell : UITableViewCell
+@interface PasswordCell : UITableViewCell <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *passwordLabel;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIView *passwordSeparatorView;
+@property (nonatomic, strong) void (^setNextResponderForPassword)();
 
 @end

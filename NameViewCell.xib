@@ -30,7 +30,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                 <connections>
                                     <action selector="firstNameTextField:" destination="WqP-JO-HcC" eventType="editingDidBegin" id="Ybx-PQ-o8O"/>
                                     <action selector="firstNameTextFieldEditingDidEnd:" destination="WqP-JO-HcC" eventType="editingDidEnd" id="nhG-67-MjR"/>
@@ -72,7 +72,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                 <connections>
                                     <action selector="lastNameTextField:" destination="WqP-JO-HcC" eventType="editingDidBegin" id="Ptg-9E-eu1"/>
                                     <action selector="lastNameTextFieldEditingDidEnd:" destination="WqP-JO-HcC" eventType="editingDidEnd" id="ur0-tu-EK5"/>

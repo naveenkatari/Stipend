@@ -13,6 +13,8 @@
 - (void)awakeFromNib {
     [self.firstNameLabel setHidden:YES];
     [self.lastNameLabel setHidden:YES];
+    self.firstNameTextField.delegate = self;
+    self.lastNameTextField.delegate = self;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -31,7 +33,7 @@
     self.firstNameSeparatorView.backgroundColor = [UIColor colorWithRed:192.0f/255.0f green:192.0f/255.0f blue:192.0f/255.0f alpha:1];
     if ([self.firstNameTextField.text isEqualToString:@""]) {
         self.firstNameTextField.placeholder = @"First Name";
-        self.firstNameLabel.text = @"";
+        [self.firstNameLabel setHidden:YES];
     }
 }
 
@@ -45,10 +47,29 @@
 {
     self.lastNameSeparatorView.backgroundColor = [UIColor colorWithRed:192.0f/255.0f green:192.0f/255.0f blue:192.0f/255.0f alpha:1];
     if ([self.lastNameTextField.text isEqualToString:@""]) {
-        self.lastNameTextField.placeholder = @"First Name";
-        self.lastNameLabel.text = @"";
+        self.lastNameTextField.placeholder = @"Last Name";
+        [self.lastNameLabel setHidden:YES];
     }
 
 }
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if(textField == self.firstNameTextField) {
+        
+        if (self.setNextResponderForFirstName)
+        {
+            self.setNextResponderForFirstName(textField);
+        }
+        
+    } else if (textField == self.lastNameTextField) {
+        
+        if (self.setNextResponderForlastName){
+            self.setNextResponderForlastName(textField);
+        }
+    }
+    
+    return YES;
+}
+
 
 @end

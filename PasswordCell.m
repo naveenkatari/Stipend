@@ -12,6 +12,7 @@
 
 - (void)awakeFromNib
 {
+    self.passwordTextField.delegate = self;
     [self.passwordLabel setHidden:YES];
 }
 
@@ -19,6 +20,10 @@
     [super setSelected:selected animated:animated];
 
 }
+//- (IBAction)passwordTextFieldEditingChanged:(id)sender
+//{
+//    [self.passwordLabel setHidden:NO];
+//}
 
 - (IBAction)passwordTextfieldDidBeginEditing:(id)sender
 {
@@ -28,10 +33,41 @@
 }
 - (IBAction)passwordTextFieldDidEndEditing:(id)sender
 {
-     self.passwordSeparatorView.backgroundColor = [UIColor colorWithRed:192.0f/255.0f green:192.0f/255.0f blue:192.0f/255.0f alpha:1];
-    if ([self.passwordTextField.text isEqualToString:@""]) {
-        self.passwordTextField.placeholder = @"Password";
-        self.passwordLabel.text = @"";
+
+    
+    self.passwordSeparatorView.backgroundColor = [UIColor colorWithRed:192.0f/255.0f green:192.0f/255.0f blue:192.0f/255.0f alpha:1];
+    UITextField *textfield = (UITextField *)sender;
+ 
+    if (textfield.tag == 1)
+    {
+        if ([self.passwordTextField.text isEqualToString:@""]) {
+            self.passwordTextField.placeholder = @"Password";
+            [self.passwordLabel setHidden:YES];
+
     }
+    }
+    else if (textfield.tag == 2)
+    {
+        if ([self.passwordTextField.text isEqualToString:@""]) {
+            self.passwordTextField.placeholder = @"Password";
+            [self.passwordLabel setHidden:YES];
+            
+        }
+    }
+    else if (textfield.tag == 3)
+    {
+        if ([self.passwordTextField.text isEqualToString:@""]) {
+            self.passwordTextField.placeholder = @"Confirm Password";
+            [self.passwordLabel setHidden:YES];
+
+    }
+    }
+    }
+-(BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    if (self.setNextResponderForPassword) {
+        self.setNextResponderForPassword();
+    }
+    return YES;
 }
 @end

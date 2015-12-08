@@ -15,6 +15,7 @@
 #import "APIClient+SignUpAPI.h"
 #import "APIClient.h"
 #import "ActivityIndicatorView.h"
+#import "SignUpStatusVC.h"
 
 @interface SignUpViewController ()
 {
@@ -61,27 +62,55 @@
     NameViewCell *cell = (NameViewCell *)[tableView dequeueReusableCellWithIdentifier:@"NameCell" forIndexPath:indexPath];
     cell.separatorInset = UIEdgeInsetsMake(0, 1000, 0, 0);
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        __weak SignUpViewController *weakSelf = self;
+        cell.setNextResponderForFirstName = ^(UITextField *textField){
+            [weakSelf nextResponderWithTag:indexPath.row withTextField:textField];
+        };
+        __weak SignUpViewController *weakSelf1 = self;
+        cell.setNextResponderForlastName = ^(UITextField *textField){
+            [weakSelf1 nextResponderWithTag:indexPath.row withTextField:textField];
+        };
     return cell;
     }
    else if (indexPath.row == 1)
     {
         EmailAddressCell *cell = (EmailAddressCell *)[tableView dequeueReusableCellWithIdentifier:@"EmailCell" forIndexPath:indexPath];
+        cell.emailAddressTextfield.tag = indexPath.row;
         cell.separatorInset = UIEdgeInsetsMake(0, 1000, 0, 0);
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        __weak SignUpViewController *weakSelf = self;
+        cell.setNextResponderForEmail = ^{
+            [weakSelf nextResponderWithTag:indexPath.row withTextField:nil];
+        };
         return cell;
     }
     else if (indexPath.row == 2) {
         PasswordCell *cell = (PasswordCell *)[tableView dequeueReusableCellWithIdentifier:@"PasswordCell" forIndexPath:indexPath];
+        cell.passwordTextField.tag = indexPath.row;
         cell.separatorInset = UIEdgeInsetsMake(0, 1000, 0, 0);
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        __weak SignUpViewController *weakSelf = self;
+        cell.setNextResponderForPassword = ^{
+            [weakSelf nextResponderWithTag:indexPath.row withTextField:nil];
+        };
         return  cell;
+        
+
     }
     else if (indexPath.row == 3) {
         PasswordCell *cell = (PasswordCell *)[tableView dequeueReusableCellWithIdentifier:@"PasswordCell" forIndexPath:indexPath];
+        cell.passwordTextField.tag = indexPath.row;
         cell.separatorInset = UIEdgeInsetsMake(0, 1000, 0, 0);
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.passwordTextField.placeholder = @"Confirm Password";
         cell.passwordLabel.text = @"CONFIRM PASSWORD";
+        __weak SignUpViewController *weakSelf = self;
+        cell.setNextResponderForPassword = ^{
+            [weakSelf nextResponderWithTag:indexPath.row withTextField:nil];
+        };
         return cell;
     }
     else if (indexPath.row == 4)
@@ -98,11 +127,7 @@
     }
     return nil;
 }
--(void) forgotPasswordTextFieldAction
-{
-    PasswordCell *passwordCell1 = (PasswordCell *)[self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
-    passwordCell1.passwordSeparatorView.backgroundColor = [UIColor colorWithRed:78.0f/255.0f green:208.0f/255.0f blue:225.0f/255.0f alpha:1];
-}
+
 
 -(void) signUpAction
 {
@@ -157,6 +182,19 @@
     [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
     [[APIClient sharedAPIClient] signUpWithUserDetails:parameters WithCompletionHandler:^(NSDictionary *responseData, NSURLResponse *response, NSError *error)
      {
+         if ( [[responseData objectForKey:@"ErrorCode" ]  isEqualToNumber:[ NSNumber numberWithLong:0 ] ] ) {
+             SignUpStatusVC *signUpVC = [self.navigationController.storyboard instantiateViewControllerWithIdentifier:@"SignUpStatusVC"];
+             [self.navigationController pushViewController:signUpVC animated:YES];
+                      }
+         else
+         {
+             SignUpButtonCell *cell = (SignUpButtonCell *)[self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]];
+             [cell.signUpErrorValidationLabel setHidden:NO];
+             cell.signUpErrorValidationLabel.text = @"NOT VALID ATTRIBUTES";
+             
+         }
+
+
          NSLog(@"Server Response %@", responseData);
          [activityView setHidden:YES];
          [[UIApplication sharedApplication]endIgnoringInteractionEvents];
@@ -167,4 +205,40 @@
     NameViewCell *nameCell = (NameViewCell *)[self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     [nameCell.firstNameTextField becomeFirstResponder];
 }
+
+
+- (void)nextResponderWithTag:(NSInteger)tag withTextField:(UITextField *)textField {
+    EmailAddressCell *emailCell = (EmailAddressCell *)[self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+    NameViewCell *nameCell = (NameViewCell *)[self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    PasswordCell *passwordCell = (PasswordCell *)[self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+    PasswordCell *passwordCell1 = (PasswordCell *)[self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
+
+    switch (tag) {
+        case 0:
+            if (textField == nameCell.firstNameTextField) {
+                [nameCell.lastNameTextField becomeFirstResponder];
+            }
+            else if (textField == nameCell.lastNameTextField) {
+                [emailCell.emailAddressTextfield becomeFirstResponder];
+            }
+            break;
+        case 1:
+            if (emailCell.emailAddressTextfield) {
+                [passwordCell.passwordTextField becomeFirstResponder];
+            }
+            break;
+        case 2:
+            if (passwordCell.passwordTextField) {
+                [passwordCell1.passwordTextField becomeFirstResponder];
+            }
+            break;
+        case 3:
+            if (passwordCell1.passwordTextField) {
+                [passwordCell1.passwordTextField resignFirstResponder];
+            }
+            break;
+    }
+    
+}
+
 @end

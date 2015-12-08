@@ -14,6 +14,7 @@
 #import "APIClient.h"
 #import "APIClient+SignInAPI.h"
 #import "ActivityIndicatorView.h"
+#import "UserDetails.h"
 
 
 @interface SignInViewController ()
@@ -28,6 +29,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //UserDetails *userDetails = [UserDetails sharedUserDetails];
+    
     [self.navigationController setNavigationBarHidden:NO animated:YES];
      self.navigationItem.title = @"Sign In";
     
@@ -74,6 +78,7 @@
     {
        static NSString *CellIdentifier2 = @"PasswordCell";
         PasswordCell *cell = (PasswordCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier2 forIndexPath:indexPath];
+        cell.passwordTextField.tag = indexPath.row;
          cell.separatorInset = UIEdgeInsetsMake(0, 1000, 0, 0);
          cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return  cell;
@@ -158,17 +163,19 @@
         if ( [[responseData objectForKey:@"ErrorCode" ]  isEqualToNumber:[ NSNumber numberWithLong:0 ] ] ) {
             SignInStatusVC *signInVC = [self.navigationController.storyboard instantiateViewControllerWithIdentifier:@"SignedInVC"];
             [self.navigationController pushViewController:signInVC animated:YES];
+            [signInVC.signInSuccessfulLabel setHidden:YES];
         }
         else
         {
             ForgotPasswordCell *cell = (ForgotPasswordCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
             [cell.signInStatusLabel setHidden:NO];
             cell.signInStatusLabel.text = @"NOT VALID EMAILID AND PASSWORD";
-            
         }
         NSLog(@"response data %@", responseData);
         [activityView setHidden:YES];
         [[UIApplication sharedApplication]endIgnoringInteractionEvents];
+        [UserDetails sharedUserDetails].userFirstName = responseData[@"firstName"];
+        [UserDetails sharedUserDetails].userLastName = responseData[@"lastName"];
     }];
 }
 

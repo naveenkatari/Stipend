@@ -8,6 +8,7 @@
 
 #import "APIClient.h"
 
+
 @implementation APIClient
 
 #pragma mark Singleton Methods
@@ -20,27 +21,25 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedMyInstance = [[self alloc] init];
-        sharedMyInstance = [sharedMyInstance initWithBaseUrl:[self baseUrl]];
     });
     return sharedMyInstance;
 }
--(id)initWithBaseUrl: (NSURL *) baseUrl
+
+-(id)init
 {
     self = [super init];
+    
+    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+    self.defaultSession = [NSURLSession sessionWithConfiguration:defaultConfigObject delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
+    
     return self;
 }
 
-+(NSURL *) baseUrl
-{
-    return [NSURL URLWithString:[NSString stringWithFormat:@"http://mystipendappelasticloadbalancer-178615218.us-west-2.elb.amazonaws.com:8080/Stipend"]];
-}
 
 #pragma mark API method to hit the server
 
 - (void)POST:(NSString *)apiName withParameters:(NSDictionary *)parameters withCompletionHandler:(void (^)(NSDictionary *, NSURLResponse *, NSError *))completionHandler {
     
-    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration:defaultConfigObject delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
     
     NSString *urlString = [NSString stringWithFormat:@"%@/%@", kBaseUrl, apiName];
     
@@ -53,7 +52,7 @@
     [urlRequest setHTTPMethod:@"POST"];
     [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
-    NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest :urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    NSURLSessionDataTask * dataTask =[self.defaultSession dataTaskWithRequest :urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
         NSDictionary *responseData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         

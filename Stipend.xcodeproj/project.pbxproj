@@ -18,6 +18,9 @@
 		D0DF9FAF1C11C19400CCF6AA /* ActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DF9FAE1C11C19400CCF6AA /* ActivityIndicatorView.m */; };
 		D0DF9FB31C15908C00CCF6AA /* TermsandConditionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DF9FB21C15908C00CCF6AA /* TermsandConditionsVC.m */; };
 		D0DF9FB61C1590A200CCF6AA /* PrivacyPolicyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DF9FB51C1590A200CCF6AA /* PrivacyPolicyVC.m */; };
+		D0E103861C169BD400E3304A /* UserDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E103851C169BD400E3304A /* UserDetails.m */; };
+		D0E103891C16A6F500E3304A /* ic_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0E103881C16A6F500E3304A /* ic_back@2x.png */; };
+		D0E1038C1C16EAE700E3304A /* SignUpStatusVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E1038B1C16EAE700E3304A /* SignUpStatusVC.m */; };
 		D0E535F01C05901C00C9CFA7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E535EF1C05901C00C9CFA7 /* main.m */; };
 		D0E535F31C05901C00C9CFA7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E535F21C05901C00C9CFA7 /* AppDelegate.m */; };
 		D0E535F61C05901C00C9CFA7 /* WelcomeScreenController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E535F51C05901C00C9CFA7 /* WelcomeScreenController.m */; };
@@ -91,6 +94,11 @@
 		D0DF9FB21C15908C00CCF6AA /* TermsandConditionsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsandConditionsVC.m; sourceTree = "<group>"; };
 		D0DF9FB41C1590A200CCF6AA /* PrivacyPolicyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivacyPolicyVC.h; sourceTree = "<group>"; };
 		D0DF9FB51C1590A200CCF6AA /* PrivacyPolicyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivacyPolicyVC.m; sourceTree = "<group>"; };
+		D0E103841C169BD400E3304A /* UserDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetails.h; sourceTree = "<group>"; };
+		D0E103851C169BD400E3304A /* UserDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetails.m; sourceTree = "<group>"; };
+		D0E103881C16A6F500E3304A /* ic_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_back@2x.png"; sourceTree = "<group>"; };
+		D0E1038A1C16EAE700E3304A /* SignUpStatusVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpStatusVC.h; sourceTree = "<group>"; };
+		D0E1038B1C16EAE700E3304A /* SignUpStatusVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpStatusVC.m; sourceTree = "<group>"; };
 		D0E535EA1C05901C00C9CFA7 /* Stipend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stipend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0E535EE1C05901C00C9CFA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0E535EF1C05901C00C9CFA7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -176,21 +184,6 @@
 			name = SignUpButtonCell;
 			sourceTree = "<group>";
 		};
-		D0DF9F8F1C10238000CCF6AA /* API */ = {
-			isa = PBXGroup;
-			children = (
-				D0DF9F901C1023B600CCF6AA /* APIClient.h */,
-				D0DF9F911C1023B600CCF6AA /* APIClient.m */,
-				D0DF9FA21C1191DD00CCF6AA /* APIClient+ForgotPassword.h */,
-				D0DF9FA31C1191DD00CCF6AA /* APIClient+ForgotPassword.m */,
-				D0DF9F961C106D7200CCF6AA /* APIClient+SignUpAPI.h */,
-				D0DF9F971C106D7200CCF6AA /* APIClient+SignUpAPI.m */,
-				D0DF9F991C11558A00CCF6AA /* APIClient+SignInAPI.h */,
-				D0DF9F9A1C11558A00CCF6AA /* APIClient+SignInAPI.m */,
-			);
-			name = API;
-			sourceTree = "<group>";
-		};
 		D0DF9FA71C11AFAC00CCF6AA /* Welcome Screen */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,23 +223,73 @@
 			name = "Terms and Conditions";
 			sourceTree = "<group>";
 		};
+		D0E103801C169B0E00E3304A /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D0E7D5071C0D85940099AACA /* SignIn */,
+				D0E7D5081C0D85A40099AACA /* SignUp */,
+				D0E7D5221C0EDDFF0099AACA /* ForgotPasswordVC */,
+				D0DF9FA71C11AFAC00CCF6AA /* Welcome Screen */,
+				D0DF9FB01C15905800CCF6AA /* Terms and Conditions */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		D0E103811C169B5600E3304A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D0E7D5051C0D851C0099AACA /* EmailAddressCell */,
+				D0E7D5091C0D943C0099AACA /* ForgotPasswordCell */,
+				D0E7D5061C0D85350099AACA /* PasswordCell */,
+				D0E7D50F1C0D98450099AACA /* SignInButtonCell */,
+				D0E7D5191C0DB1D00099AACA /* Name Cell */,
+				D0DF9F8A1C0FFD0700CCF6AA /* SignUpButtonCell */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		D0E103821C169B8600E3304A /* Network Manager */ = {
+			isa = PBXGroup;
+			children = (
+				D0DF9F901C1023B600CCF6AA /* APIClient.h */,
+				D0DF9F911C1023B600CCF6AA /* APIClient.m */,
+				D0DF9FA21C1191DD00CCF6AA /* APIClient+ForgotPassword.h */,
+				D0DF9FA31C1191DD00CCF6AA /* APIClient+ForgotPassword.m */,
+				D0DF9F961C106D7200CCF6AA /* APIClient+SignUpAPI.h */,
+				D0DF9F971C106D7200CCF6AA /* APIClient+SignUpAPI.m */,
+				D0DF9F991C11558A00CCF6AA /* APIClient+SignInAPI.h */,
+				D0DF9F9A1C11558A00CCF6AA /* APIClient+SignInAPI.m */,
+			);
+			name = "Network Manager";
+			sourceTree = "<group>";
+		};
+		D0E103831C169BB900E3304A /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				D0E103841C169BD400E3304A /* UserDetails.h */,
+				D0E103851C169BD400E3304A /* UserDetails.m */,
+			);
+			name = Modal;
+			sourceTree = "<group>";
+		};
+		D0E103871C16A14D00E3304A /* Storyboard and Nibs */ = {
+			isa = PBXGroup;
+			children = (
+				D0E535F71C05901C00C9CFA7 /* Main.storyboard */,
+			);
+			name = "Storyboard and Nibs";
+			sourceTree = "<group>";
+		};
 		D0E535E11C05901B00C9CFA7 = {
 			isa = PBXGroup;
 			children = (
-				D0DF9FB01C15905800CCF6AA /* Terms and Conditions */,
+				D0E103871C16A14D00E3304A /* Storyboard and Nibs */,
+				D0E103831C169BB900E3304A /* Modal */,
+				D0E103821C169B8600E3304A /* Network Manager */,
+				D0E103811C169B5600E3304A /* Cells */,
+				D0E103801C169B0E00E3304A /* View Controllers */,
 				D0DF9FA91C11C0F100CCF6AA /* Views */,
-				D0DF9FA71C11AFAC00CCF6AA /* Welcome Screen */,
-				D0DF9F8F1C10238000CCF6AA /* API */,
-				D0DF9F8A1C0FFD0700CCF6AA /* SignUpButtonCell */,
-				D0E7D5221C0EDDFF0099AACA /* ForgotPasswordVC */,
-				D0E7D5191C0DB1D00099AACA /* Name Cell */,
 				D0E7D5151C0DA3690099AACA /* Validations */,
-				D0E7D50F1C0D98450099AACA /* SignInButtonCell */,
-				D0E7D5091C0D943C0099AACA /* ForgotPasswordCell */,
-				D0E7D5081C0D85A40099AACA /* SignUp */,
-				D0E7D5071C0D85940099AACA /* SignIn */,
-				D0E7D5061C0D85350099AACA /* PasswordCell */,
-				D0E7D5051C0D851C0099AACA /* EmailAddressCell */,
 				D0E535EC1C05901C00C9CFA7 /* Stipend */,
 				D0E536061C05901C00C9CFA7 /* StipendTests */,
 				D0E535EB1C05901C00C9CFA7 /* Products */,
@@ -267,7 +310,6 @@
 			children = (
 				D0E535F11C05901C00C9CFA7 /* AppDelegate.h */,
 				D0E535F21C05901C00C9CFA7 /* AppDelegate.m */,
-				D0E535F71C05901C00C9CFA7 /* Main.storyboard */,
 				D0E535FA1C05901C00C9CFA7 /* Images.xcassets */,
 				D0E535FC1C05901C00C9CFA7 /* LaunchScreen.xib */,
 				D0E535ED1C05901C00C9CFA7 /* Supporting Files */,
@@ -323,6 +365,7 @@
 		D0E536151C05921400C9CFA7 /* App Icon */ = {
 			isa = PBXGroup;
 			children = (
+				D0E103881C16A6F500E3304A /* ic_back@2x.png */,
 				D0E536161C05921400C9CFA7 /* Icon-29@2x.png */,
 				D0E536171C05921400C9CFA7 /* Icon-29@3x.png */,
 				D0E536181C05921400C9CFA7 /* Icon-40@2x.png */,
@@ -396,6 +439,8 @@
 			children = (
 				D0E7D4F81C0C5C670099AACA /* SignUpViewController.h */,
 				D0E7D4F91C0C5C670099AACA /* SignUpViewController.m */,
+				D0E1038A1C16EAE700E3304A /* SignUpStatusVC.h */,
+				D0E1038B1C16EAE700E3304A /* SignUpStatusVC.m */,
 			);
 			name = SignUp;
 			sourceTree = "<group>";
@@ -531,6 +576,7 @@
 				D0E536381C05921400C9CFA7 /* connect-fb.png in Resources */,
 				D0E5362B1C05921400C9CFA7 /* Icon-29@2x.png in Resources */,
 				D0E535F91C05901C00C9CFA7 /* Main.storyboard in Resources */,
+				D0E103891C16A6F500E3304A /* ic_back@2x.png in Resources */,
 				D0E536351C05921400C9CFA7 /* about-logo.png in Resources */,
 				D0E535FE1C05901C00C9CFA7 /* LaunchScreen.xib in Resources */,
 				D0E5363D1C05921400C9CFA7 /* connect-tw@3x.png in Resources */,
@@ -575,7 +621,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0DF9FA11C11601E00CCF6AA /* SignInStatusVC.m in Sources */,
+				D0E103861C169BD400E3304A /* UserDetails.m in Sources */,
 				D0E7D5251C0EDE290099AACA /* ForgotPasswordViewController.m in Sources */,
+				D0E1038C1C16EAE700E3304A /* SignUpStatusVC.m in Sources */,
 				D0DF9F921C1023B600CCF6AA /* APIClient.m in Sources */,
 				D0DF9FAF1C11C19400CCF6AA /* ActivityIndicatorView.m in Sources */,
 				D0E7D5131C0D986F0099AACA /* SignInButtonCell.m in Sources */,
@@ -623,6 +671,7 @@
 				D0E535F81C05901C00C9CFA7 /* Base */,
 			);
 			name = Main.storyboard;
+			path = Stipend;
 			sourceTree = "<group>";
 		};
 		D0E535FC1C05901C00C9CFA7 /* LaunchScreen.xib */ = {

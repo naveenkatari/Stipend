@@ -7,7 +7,16 @@
 //
 
 #import "SignInStatusVC.h"
+#import "UserDetails.h"
 
 @implementation SignInStatusVC
+-(void) viewDidLoad
+{
+    self.navigationItem.hidesBackButton = YES;
+    self.navigationItem.title = @"Stipend";
+    UserDetails *userDetails = [UserDetails sharedUserDetails];
+    self.signInSuccessfulLabel.text = [NSString stringWithFormat:@"%@ %@ %@", self.signInSuccessfulLabel.text, userDetails.userFirstName, userDetails.userLastName];
+    [self.signInSuccessfulLabel text];
+}
 
 @end
