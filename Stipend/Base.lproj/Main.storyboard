@@ -783,10 +783,10 @@
             </objects>
             <point key="canvasLocation" x="2497.5" y="432"/>
         </scene>
-        <!--Sign In StatusVC-->
+        <!--User Status View Controller-->
         <scene sceneID="TRk-p9-dOI">
             <objects>
-                <viewController storyboardIdentifier="SignedInVC" id="QUW-yZ-suE" customClass="SignInStatusVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserStatusVC" id="QUW-yZ-suE" customClass="UserStatusViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PcP-tm-Q1M"/>
                         <viewControllerLayoutGuide type="bottom" id="W7h-gr-PkN"/>
@@ -795,24 +795,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signed In as" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NM7-Q4-tzc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NM7-Q4-tzc">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="4cj-8M-ZDh"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
                                 <color key="textColor" red="0.30588235294117649" green="0.81568627450980391" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="4cj-8M-ZDh"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="4cj-8M-ZDh"/>
+                                    </mask>
+                                </variation>
                             </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="NM7-Q4-tzc" secondAttribute="trailing" constant="80" id="1FR-BK-Xs2">
-                                <variation key="heightClass=regular-widthClass=compact" constant="30"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
                             </constraint>
+                            <constraint firstAttribute="centerY" secondItem="NM7-Q4-tzc" secondAttribute="centerY" id="2ta-Kf-saV"/>
                             <constraint firstItem="NM7-Q4-tzc" firstAttribute="leading" secondItem="U2F-hm-5qF" secondAttribute="leadingMargin" constant="80" id="KRA-Cu-hTP">
+                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                            </constraint>
+                            <constraint firstItem="NM7-Q4-tzc" firstAttribute="top" secondItem="PcP-tm-Q1M" secondAttribute="bottom" constant="31" id="Sse-7V-M2j">
                                 <variation key="heightClass=regular-widthClass=compact" constant="30"/>
                             </constraint>
-                            <constraint firstItem="NM7-Q4-tzc" firstAttribute="top" secondItem="PcP-tm-Q1M" secondAttribute="bottom" constant="31" id="Sse-7V-M2j"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -820,6 +836,7 @@
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="1FR-BK-Xs2"/>
+                                <exclude reference="2ta-Kf-saV"/>
                                 <exclude reference="KRA-Cu-hTP"/>
                                 <exclude reference="Sse-7V-M2j"/>
                             </mask>
@@ -830,71 +847,20 @@
                             </mask>
                             <mask key="constraints">
                                 <include reference="1FR-BK-Xs2"/>
+                                <include reference="2ta-Kf-saV"/>
                                 <include reference="KRA-Cu-hTP"/>
-                                <include reference="Sse-7V-M2j"/>
+                                <exclude reference="Sse-7V-M2j"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="signInSuccessfulLabel" destination="NM7-Q4-tzc" id="05y-r2-sHc"/>
+                        <outlet property="userSuccessLabel" destination="NM7-Q4-tzc" id="sLR-S9-ID1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u2E-N2-87L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3388.5" y="432"/>
-        </scene>
-        <!--Sign Up StatusVC-->
-        <scene sceneID="iBg-Gp-NoU">
-            <objects>
-                <viewController storyboardIdentifier="SignUpStatusVC" id="nsF-E3-2VV" customClass="SignUpStatusVC" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="maL-Oi-eag"/>
-                        <viewControllerLayoutGuide type="bottom" id="Gjn-wS-CP1"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="StM-EU-QbS">
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signed Up for College Hunch Successfully" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qA0-uc-6Wt">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
-                                <color key="textColor" red="0.30588235294117649" green="0.81568627450980391" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="qA0-uc-6Wt" firstAttribute="top" secondItem="maL-Oi-eag" secondAttribute="bottom" constant="30" id="EaZ-bT-8Ah"/>
-                            <constraint firstItem="qA0-uc-6Wt" firstAttribute="leading" secondItem="StM-EU-QbS" secondAttribute="leadingMargin" id="Ekp-vC-TDu"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="qA0-uc-6Wt" secondAttribute="trailing" constant="10" id="hak-hq-3Ik"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="qA0-uc-6Wt"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="EaZ-bT-8Ah"/>
-                                <exclude reference="Ekp-vC-TDu"/>
-                                <exclude reference="hak-hq-3Ik"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="qA0-uc-6Wt"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="EaZ-bT-8Ah"/>
-                                <include reference="Ekp-vC-TDu"/>
-                                <include reference="hak-hq-3Ik"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <connections>
-                        <outlet property="signUpSuccessLabel" destination="qA0-uc-6Wt" id="hbl-I6-8Y9"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="knG-mU-1Xf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3859" y="432"/>
+            <point key="canvasLocation" x="3513" y="427.5"/>
         </scene>
         <!--Privacy Policy-->
         <scene sceneID="JBD-Vd-bNZ">
@@ -1230,7 +1196,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aIE-K0-Ek8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3136.5" y="1112.25"/>
+            <point key="canvasLocation" x="3135" y="1187.25"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9e4-93-Adp">

@@ -10,7 +10,7 @@
 #import "EmailAddressCell.h"
 #import "ForgotPasswordViewController.h"
 #import "Validations.h"
-#import "SignInStatusVC.h"
+#import "UserStatusViewController.h"
 #import "APIClient.h"
 #import "APIClient+SignInAPI.h"
 #import "ActivityIndicatorView.h"
@@ -161,9 +161,9 @@
     [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
     [[APIClient sharedAPIClient] loginWithUserDetails:parameters WithCompletionHandler:^(NSDictionary *responseData, NSURLResponse *response, NSError *error) {
         if ( [[responseData objectForKey:@"ErrorCode" ]  isEqualToNumber:[ NSNumber numberWithLong:0 ] ] ) {
-            SignInStatusVC *signInVC = [self.navigationController.storyboard instantiateViewControllerWithIdentifier:@"SignedInVC"];
-            [self.navigationController pushViewController:signInVC animated:YES];
-            [signInVC.signInSuccessfulLabel setHidden:YES];
+            UserStatusViewController *userStatusVC= [self.navigationController.storyboard instantiateViewControllerWithIdentifier:@"UserStatusVC"];
+            userStatusVC.successStatus = @"SignIn";
+            [self.navigationController pushViewController:userStatusVC animated:YES];
         }
         else
         {

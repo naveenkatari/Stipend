@@ -15,7 +15,7 @@
 #import "APIClient+SignUpAPI.h"
 #import "APIClient.h"
 #import "ActivityIndicatorView.h"
-#import "SignUpStatusVC.h"
+#import "UserStatusViewController.h"
 
 @interface SignUpViewController ()
 {
@@ -183,9 +183,10 @@
     [[APIClient sharedAPIClient] signUpWithUserDetails:parameters WithCompletionHandler:^(NSDictionary *responseData, NSURLResponse *response, NSError *error)
      {
          if ( [[responseData objectForKey:@"ErrorCode" ]  isEqualToNumber:[ NSNumber numberWithLong:0 ] ] ) {
-             SignUpStatusVC *signUpVC = [self.navigationController.storyboard instantiateViewControllerWithIdentifier:@"SignUpStatusVC"];
-             [self.navigationController pushViewController:signUpVC animated:YES];
-                      }
+             UserStatusViewController *userStatusVC = [self.navigationController.storyboard instantiateViewControllerWithIdentifier:@"UserStatusVC"];
+             userStatusVC.successStatus = @"SignUp";
+             [self.navigationController pushViewController:userStatusVC animated:YES];
+         }
          else
          {
              SignUpButtonCell *cell = (SignUpButtonCell *)[self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]];

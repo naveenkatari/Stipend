@@ -12,7 +12,7 @@
 		D0DF9F921C1023B600CCF6AA /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DF9F911C1023B600CCF6AA /* APIClient.m */; };
 		D0DF9F981C106D7200CCF6AA /* APIClient+SignUpAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DF9F971C106D7200CCF6AA /* APIClient+SignUpAPI.m */; };
 		D0DF9F9B1C11558A00CCF6AA /* APIClient+SignInAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DF9F9A1C11558A00CCF6AA /* APIClient+SignInAPI.m */; };
-		D0DF9FA11C11601E00CCF6AA /* SignInStatusVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DF9FA01C11601E00CCF6AA /* SignInStatusVC.m */; };
+		D0DF9FA11C11601E00CCF6AA /* UserStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DF9FA01C11601E00CCF6AA /* UserStatusViewController.m */; };
 		D0DF9FA41C1191DD00CCF6AA /* APIClient+ForgotPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DF9FA31C1191DD00CCF6AA /* APIClient+ForgotPassword.m */; };
 		D0DF9FAC1C11C11200CCF6AA /* ActivityIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0DF9FAB1C11C11200CCF6AA /* ActivityIndicatorView.xib */; };
 		D0DF9FAF1C11C19400CCF6AA /* ActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DF9FAE1C11C19400CCF6AA /* ActivityIndicatorView.m */; };
@@ -20,7 +20,6 @@
 		D0DF9FB61C1590A200CCF6AA /* PrivacyPolicyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DF9FB51C1590A200CCF6AA /* PrivacyPolicyVC.m */; };
 		D0E103861C169BD400E3304A /* UserDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E103851C169BD400E3304A /* UserDetails.m */; };
 		D0E103891C16A6F500E3304A /* ic_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0E103881C16A6F500E3304A /* ic_back@2x.png */; };
-		D0E1038C1C16EAE700E3304A /* SignUpStatusVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E1038B1C16EAE700E3304A /* SignUpStatusVC.m */; };
 		D0E535F01C05901C00C9CFA7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E535EF1C05901C00C9CFA7 /* main.m */; };
 		D0E535F31C05901C00C9CFA7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E535F21C05901C00C9CFA7 /* AppDelegate.m */; };
 		D0E535F61C05901C00C9CFA7 /* WelcomeScreenController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E535F51C05901C00C9CFA7 /* WelcomeScreenController.m */; };
@@ -83,8 +82,8 @@
 		D0DF9F971C106D7200CCF6AA /* APIClient+SignUpAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "APIClient+SignUpAPI.m"; sourceTree = "<group>"; };
 		D0DF9F991C11558A00CCF6AA /* APIClient+SignInAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "APIClient+SignInAPI.h"; sourceTree = "<group>"; };
 		D0DF9F9A1C11558A00CCF6AA /* APIClient+SignInAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "APIClient+SignInAPI.m"; sourceTree = "<group>"; };
-		D0DF9F9F1C11601E00CCF6AA /* SignInStatusVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInStatusVC.h; sourceTree = "<group>"; };
-		D0DF9FA01C11601E00CCF6AA /* SignInStatusVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInStatusVC.m; sourceTree = "<group>"; };
+		D0DF9F9F1C11601E00CCF6AA /* UserStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserStatusViewController.h; sourceTree = "<group>"; };
+		D0DF9FA01C11601E00CCF6AA /* UserStatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserStatusViewController.m; sourceTree = "<group>"; };
 		D0DF9FA21C1191DD00CCF6AA /* APIClient+ForgotPassword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "APIClient+ForgotPassword.h"; sourceTree = "<group>"; };
 		D0DF9FA31C1191DD00CCF6AA /* APIClient+ForgotPassword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "APIClient+ForgotPassword.m"; sourceTree = "<group>"; };
 		D0DF9FAB1C11C11200CCF6AA /* ActivityIndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityIndicatorView.xib; sourceTree = "<group>"; };
@@ -97,8 +96,6 @@
 		D0E103841C169BD400E3304A /* UserDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetails.h; sourceTree = "<group>"; };
 		D0E103851C169BD400E3304A /* UserDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetails.m; sourceTree = "<group>"; };
 		D0E103881C16A6F500E3304A /* ic_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_back@2x.png"; sourceTree = "<group>"; };
-		D0E1038A1C16EAE700E3304A /* SignUpStatusVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpStatusVC.h; sourceTree = "<group>"; };
-		D0E1038B1C16EAE700E3304A /* SignUpStatusVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpStatusVC.m; sourceTree = "<group>"; };
 		D0E535EA1C05901C00C9CFA7 /* Stipend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stipend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0E535EE1C05901C00C9CFA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0E535EF1C05901C00C9CFA7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -174,6 +171,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D0DF60251C17EC3400948C7B /* Status VC */ = {
+			isa = PBXGroup;
+			children = (
+				D0DF9F9F1C11601E00CCF6AA /* UserStatusViewController.h */,
+				D0DF9FA01C11601E00CCF6AA /* UserStatusViewController.m */,
+			);
+			name = "Status VC";
+			sourceTree = "<group>";
+		};
 		D0DF9F8A1C0FFD0700CCF6AA /* SignUpButtonCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +232,7 @@
 		D0E103801C169B0E00E3304A /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D0DF60251C17EC3400948C7B /* Status VC */,
 				D0E7D5071C0D85940099AACA /* SignIn */,
 				D0E7D5081C0D85A40099AACA /* SignUp */,
 				D0E7D5221C0EDDFF0099AACA /* ForgotPasswordVC */,
@@ -428,8 +435,6 @@
 			children = (
 				D0E7D4F51C0C4FEA0099AACA /* SignInViewController.h */,
 				D0E7D4F61C0C4FEA0099AACA /* SignInViewController.m */,
-				D0DF9F9F1C11601E00CCF6AA /* SignInStatusVC.h */,
-				D0DF9FA01C11601E00CCF6AA /* SignInStatusVC.m */,
 			);
 			name = SignIn;
 			sourceTree = "<group>";
@@ -439,8 +444,6 @@
 			children = (
 				D0E7D4F81C0C5C670099AACA /* SignUpViewController.h */,
 				D0E7D4F91C0C5C670099AACA /* SignUpViewController.m */,
-				D0E1038A1C16EAE700E3304A /* SignUpStatusVC.h */,
-				D0E1038B1C16EAE700E3304A /* SignUpStatusVC.m */,
 			);
 			name = SignUp;
 			sourceTree = "<group>";
@@ -620,10 +623,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0DF9FA11C11601E00CCF6AA /* SignInStatusVC.m in Sources */,
+				D0DF9FA11C11601E00CCF6AA /* UserStatusViewController.m in Sources */,
 				D0E103861C169BD400E3304A /* UserDetails.m in Sources */,
 				D0E7D5251C0EDE290099AACA /* ForgotPasswordViewController.m in Sources */,
-				D0E1038C1C16EAE700E3304A /* SignUpStatusVC.m in Sources */,
 				D0DF9F921C1023B600CCF6AA /* APIClient.m in Sources */,
 				D0DF9FAF1C11C19400CCF6AA /* ActivityIndicatorView.m in Sources */,
 				D0E7D5131C0D986F0099AACA /* SignInButtonCell.m in Sources */,

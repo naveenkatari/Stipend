@@ -9,10 +9,24 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Default.png" translatesAutoresizingMaskIntoConstraints="NO" id="OwV-Zj-F4E">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="OwV-Zj-F4E" secondAttribute="bottom" id="QwG-dr-uJf"/>
+                <constraint firstItem="OwV-Zj-F4E" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="TY5-yM-TjO"/>
+                <constraint firstAttribute="trailing" secondItem="OwV-Zj-F4E" secondAttribute="trailing" id="lUL-QT-0Gv"/>
+                <constraint firstItem="OwV-Zj-F4E" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="w7h-7D-z2r"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="547.5" y="454.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="Default.png" width="320" height="480"/>
+    </resources>
 </document>
