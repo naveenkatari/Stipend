@@ -35,7 +35,12 @@
         [self.emailAddressLabel setHidden:YES];
     }
 }
-
+- (IBAction)editingChanged:(id)sender
+{
+    if (self.checkEmailTextFieldLength) {
+        self.checkEmailTextFieldLength();
+    }
+}
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     if (self.setNextResponderForEmail) {

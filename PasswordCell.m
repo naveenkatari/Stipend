@@ -70,4 +70,13 @@
     }
     return YES;
 }
+- (IBAction)passwordTextFieldEditingChanged:(id)sender
+{
+    UITextField *textfield = (UITextField *)sender;
+    if (textfield.tag == 1) {
+    if (self.checkPasswordTextFieldLength) {
+        self.checkPasswordTextFieldLength();
+    }
+    }
+}
 @end

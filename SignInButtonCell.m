@@ -16,7 +16,8 @@
 }
 
 - (void)awakeFromNib {
-    // Initialization code
+    [self.signInButton setEnabled:NO];
+    self.signInButton.backgroundColor = [UIColor colorWithRed:165.0f/255.0f green:225.0f/255.0f blue:233.0f/255.0f alpha:1];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

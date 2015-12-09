@@ -23,6 +23,7 @@
                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="18"/>
                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
                         <connections>
+                            <action selector="editingChanged:" destination="KGk-i7-Jjw" eventType="editingChanged" id="Svk-c5-pex"/>
                             <action selector="emailAddressCell:" destination="KGk-i7-Jjw" eventType="editingDidBegin" id="G4s-3B-3dI"/>
                             <action selector="emailTextFieldDidEndEditing:" destination="KGk-i7-Jjw" eventType="editingDidEnd" id="06c-6v-uKb"/>
                         </connections>

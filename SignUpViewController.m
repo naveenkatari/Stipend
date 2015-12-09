@@ -31,11 +31,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
-    [self.signupTableView registerNib:[UINib nibWithNibName:@"NameViewCell" bundle:nil] forCellReuseIdentifier:@"NameCell"];
-    [self.signupTableView registerNib:[UINib nibWithNibName:@"EmailAddressCell" bundle:nil] forCellReuseIdentifier:@"EmailCell"];
-    [self.signupTableView registerNib:[UINib nibWithNibName:@"PasswordCell" bundle:nil] forCellReuseIdentifier:@"PasswordCell"];
-    [self.signupTableView registerNib:[UINib nibWithNibName:@"SignUpButtonCell" bundle:nil] forCellReuseIdentifier:@"SignUpCell"];
-    _signupTableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
+    [self.tableView registerNib:[UINib nibWithNibName:@"NameViewCell" bundle:nil] forCellReuseIdentifier:@"NameCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"EmailAddressCell" bundle:nil] forCellReuseIdentifier:@"EmailCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"PasswordCell" bundle:nil] forCellReuseIdentifier:@"PasswordCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"SignUpButtonCell" bundle:nil] forCellReuseIdentifier:@"SignUpCell"];
+   self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     
 }
 
@@ -133,10 +133,10 @@
 {
     
     validations = [[Validations alloc]init];
-    EmailAddressCell *emailCell = (EmailAddressCell *)[self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
-    PasswordCell *passwordCell = (PasswordCell *)[self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
-    PasswordCell *passwordCell1 = (PasswordCell *)[self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
-    NameViewCell *nameCell = (NameViewCell *)[self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    EmailAddressCell *emailCell = (EmailAddressCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+    PasswordCell *passwordCell = (PasswordCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+    PasswordCell *passwordCell1 = (PasswordCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
+    NameViewCell *nameCell = (NameViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     NSString *emailID = emailCell.emailAddressTextfield.text;
     NSString *password = passwordCell.passwordTextField.text;
     //Email Validation
@@ -189,7 +189,7 @@
          }
          else
          {
-             SignUpButtonCell *cell = (SignUpButtonCell *)[self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]];
+             SignUpButtonCell *cell = (SignUpButtonCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]];
              [cell.signUpErrorValidationLabel setHidden:NO];
              cell.signUpErrorValidationLabel.text = @"NOT VALID ATTRIBUTES";
              
@@ -203,16 +203,16 @@
 }
 -(void) setFirstNameTextFieldFirstResponder
 {
-    NameViewCell *nameCell = (NameViewCell *)[self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    NameViewCell *nameCell = (NameViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     [nameCell.firstNameTextField becomeFirstResponder];
 }
 
 
 - (void)nextResponderWithTag:(NSInteger)tag withTextField:(UITextField *)textField {
-    EmailAddressCell *emailCell = (EmailAddressCell *)[self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
-    NameViewCell *nameCell = (NameViewCell *)[self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    PasswordCell *passwordCell = (PasswordCell *)[self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
-    PasswordCell *passwordCell1 = (PasswordCell *)[self.signupTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
+    EmailAddressCell *emailCell = (EmailAddressCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+    NameViewCell *nameCell = (NameViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    PasswordCell *passwordCell = (PasswordCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+    PasswordCell *passwordCell1 = (PasswordCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
 
     switch (tag) {
         case 0:

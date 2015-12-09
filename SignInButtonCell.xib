@@ -39,6 +39,9 @@
                     <constraint firstAttribute="centerY" secondItem="FIX-Tp-3ap" secondAttribute="centerY" id="Ezs-Zp-aZ1"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="signInButton" destination="FIX-Tp-3ap" id="bzX-4Z-EJh"/>
+            </connections>
             <point key="canvasLocation" x="416" y="431.5"/>
         </tableViewCell>
     </objects>

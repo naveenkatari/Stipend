@@ -13,5 +13,6 @@
 
 - (IBAction)signinButton:(id)sender;
 @property (nonatomic, strong) void (^signActionBlock)();
+@property (weak, nonatomic) IBOutlet UIButton *signInButton;
 
 @end

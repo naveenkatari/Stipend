@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIView *passwordSeparatorView;
 @property (nonatomic, strong) void (^setNextResponderForPassword)();
+@property (nonatomic, strong) void (^checkPasswordTextFieldLength)();
 
 @end

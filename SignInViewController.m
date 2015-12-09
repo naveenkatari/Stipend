@@ -73,6 +73,10 @@
         EmailAddressCell *cell = (EmailAddressCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier1 forIndexPath:indexPath];
          cell.separatorInset = UIEdgeInsetsMake(0, 1000, 0, 0);
          cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        __weak SignInViewController *weakSelf = self;
+        cell.checkEmailTextFieldLength = ^{
+            [weakSelf enableDisableSignInButton];
+        };
         return cell;
     } else if (indexPath.row == 1)
     {
@@ -81,6 +85,10 @@
         cell.passwordTextField.tag = indexPath.row;
          cell.separatorInset = UIEdgeInsetsMake(0, 1000, 0, 0);
          cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        __weak SignInViewController *weakSelf = self;
+        cell.checkPasswordTextFieldLength = ^{
+            [weakSelf enableDisableSignInButton];
+        };
         return  cell;
     }
     else if (indexPath.row == 2)
@@ -184,5 +192,20 @@
     EmailAddressCell *emailCell = (EmailAddressCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     [emailCell.emailAddressTextfield becomeFirstResponder];
 }
+-(void) enableDisableSignInButton
+{
+    EmailAddressCell *emailCell = (EmailAddressCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    PasswordCell *passwordCell = (PasswordCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+    SignInButtonCell *signInButtonCell = (SignInButtonCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
+    if ([emailCell.emailAddressTextfield.text length] != 0 && [passwordCell.passwordTextField.text length] != 0) {
+        [signInButtonCell.signInButton setEnabled:YES];
+        signInButtonCell.signInButton.backgroundColor = [UIColor colorWithRed:77.0f/255.0f green:208.0f/255.0f blue:225.0f/255.0f alpha:1];
+    }
+        else
+        {
+            [signInButtonCell.signInButton setEnabled:NO];
+            signInButtonCell.signInButton.backgroundColor = [UIColor colorWithRed:165.0f/255.0f green:225.0f/255.0f blue:233.0f/255.0f alpha:1];
+        }
+    }
 
 @end

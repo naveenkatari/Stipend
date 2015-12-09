@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UIView *emailIDSeparatorView;
 @property (nonatomic, strong) void (^setFirstResponderTextFieldBlock)();
 @property (nonatomic, strong) void (^setNextResponderForEmail)();
+@property (nonatomic, strong) void (^checkEmailTextFieldLength)();
 
 @end
