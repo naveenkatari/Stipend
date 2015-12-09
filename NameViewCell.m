@@ -7,6 +7,7 @@
 //
 
 #import "NameViewCell.h"
+#import "UIColor+Additions.h"
 
 @implementation NameViewCell
 
@@ -25,12 +26,12 @@
 - (IBAction)firstNameTextField:(id)sender
 {
     [self.firstNameLabel setHidden:NO];
-    self.firstNameSeparatorView.backgroundColor = [UIColor colorWithRed:78.0f/255.0f green:208.0f/255.0f blue:225.0f/255.0f alpha:1];
+    self.firstNameSeparatorView.backgroundColor = [UIColor CHActiveBlueColor];
     self.firstNameTextField.placeholder = nil;
 }
 - (IBAction)firstNameTextFieldEditingDidEnd:(id)sender
 {
-    self.firstNameSeparatorView.backgroundColor = [UIColor colorWithRed:192.0f/255.0f green:192.0f/255.0f blue:192.0f/255.0f alpha:1];
+    self.firstNameSeparatorView.backgroundColor = [UIColor CHSgiGrayColor];
     if ([self.firstNameTextField.text isEqualToString:@""]) {
         self.firstNameTextField.placeholder = @"First Name";
         [self.firstNameLabel setHidden:YES];
@@ -41,11 +42,11 @@
 {
     [self.lastNameLabel setHidden:NO];
     self.lastNameTextField.placeholder = nil;
-    self.lastNameSeparatorView.backgroundColor = [UIColor colorWithRed:78.0f/255.0f green:208.0f/255.0f blue:225.0f/255.0f alpha:1];
+    self.lastNameSeparatorView.backgroundColor = [UIColor CHActiveBlueColor];
 }
 - (IBAction)lastNameTextFieldEditingDidEnd:(id)sender
 {
-    self.lastNameSeparatorView.backgroundColor = [UIColor colorWithRed:192.0f/255.0f green:192.0f/255.0f blue:192.0f/255.0f alpha:1];
+    self.lastNameSeparatorView.backgroundColor = [UIColor CHSgiGrayColor];
     if ([self.lastNameTextField.text isEqualToString:@""]) {
         self.lastNameTextField.placeholder = @"Last Name";
         [self.lastNameLabel setHidden:YES];

@@ -7,6 +7,7 @@
 //
 
 #import "PasswordCell.h"
+#import "UIColor+Additions.h"
 
 @implementation PasswordCell
 
@@ -29,13 +30,13 @@
 {
     [self.passwordLabel setHidden:NO];
     self.passwordTextField.placeholder = nil;
-    self.passwordSeparatorView.backgroundColor = [UIColor colorWithRed:78.0f/255.0f green:208.0f/255.0f blue:225.0f/255.0f alpha:1];
+    self.passwordSeparatorView.backgroundColor = [UIColor CHActiveBlueColor];
 }
 - (IBAction)passwordTextFieldDidEndEditing:(id)sender
 {
 
     
-    self.passwordSeparatorView.backgroundColor = [UIColor colorWithRed:192.0f/255.0f green:192.0f/255.0f blue:192.0f/255.0f alpha:1];
+    self.passwordSeparatorView.backgroundColor = [UIColor CHSgiGrayColor];
     UITextField *textfield = (UITextField *)sender;
  
     if (textfield.tag == 1)

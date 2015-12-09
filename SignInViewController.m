@@ -15,6 +15,7 @@
 #import "APIClient+SignInAPI.h"
 #import "ActivityIndicatorView.h"
 #import "UserDetails.h"
+#import "UIColor+Additions.h"
 
 
 @interface SignInViewController ()
@@ -199,12 +200,12 @@
     SignInButtonCell *signInButtonCell = (SignInButtonCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
     if ([emailCell.emailAddressTextfield.text length] != 0 && [passwordCell.passwordTextField.text length] != 0) {
         [signInButtonCell.signInButton setEnabled:YES];
-        signInButtonCell.signInButton.backgroundColor = [UIColor colorWithRed:77.0f/255.0f green:208.0f/255.0f blue:225.0f/255.0f alpha:1];
+        signInButtonCell.signInButton.backgroundColor = [UIColor CHActiveBlueColor];
     }
         else
         {
             [signInButtonCell.signInButton setEnabled:NO];
-            signInButtonCell.signInButton.backgroundColor = [UIColor colorWithRed:165.0f/255.0f green:225.0f/255.0f blue:233.0f/255.0f alpha:1];
+            signInButtonCell.signInButton.backgroundColor = [UIColor CHInactiveBlueColor];
         }
     }
 

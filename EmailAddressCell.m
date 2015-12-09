@@ -7,6 +7,7 @@
 //
 
 #import "EmailAddressCell.h"
+#import "UIColor+Additions.h"
 
 @implementation EmailAddressCell
 
@@ -24,12 +25,12 @@
 {
     [self.emailAddressLabel setHidden:NO];
     self.emailAddressTextfield.placeholder = nil;
-    self.emailIDSeparatorView.backgroundColor = [UIColor colorWithRed:78.0f/255.0f green:208.0f/255.0f blue:225.0f/255.0f alpha:1];
+    self.emailIDSeparatorView.backgroundColor = [UIColor CHActiveBlueColor];
 }
 
 - (IBAction)emailTextFieldDidEndEditing:(id)sender
 {
-    self.emailIDSeparatorView.backgroundColor = [UIColor colorWithRed:192.0f/255.0f green:192.0f/255.0f blue:192.0f/255.0f alpha:1];
+    self.emailIDSeparatorView.backgroundColor = [UIColor CHSgiGrayColor];
     if ([self.emailAddressTextfield.text isEqualToString:@""]) {
         self.emailAddressTextfield.placeholder = @"Email Address";
         [self.emailAddressLabel setHidden:YES];

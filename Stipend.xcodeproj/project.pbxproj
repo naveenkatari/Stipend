@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D0A286A31C180350005D32AA /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A286A21C180350005D32AA /* UIColor+Additions.m */; };
 		D0DF9F881C0FFBBF00CCF6AA /* SignUpButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DF9F861C0FFBBF00CCF6AA /* SignUpButtonCell.m */; };
 		D0DF9F891C0FFBBF00CCF6AA /* SignUpButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0DF9F871C0FFBBF00CCF6AA /* SignUpButtonCell.xib */; };
 		D0DF9F921C1023B600CCF6AA /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DF9F911C1023B600CCF6AA /* APIClient.m */; };
@@ -73,6 +74,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D0A286A11C180350005D32AA /* UIColor+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Additions.h"; sourceTree = "<group>"; };
+		D0A286A21C180350005D32AA /* UIColor+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Additions.m"; sourceTree = "<group>"; };
 		D0DF9F851C0FFBBF00CCF6AA /* SignUpButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpButtonCell.h; sourceTree = "<group>"; };
 		D0DF9F861C0FFBBF00CCF6AA /* SignUpButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpButtonCell.m; sourceTree = "<group>"; };
 		D0DF9F871C0FFBBF00CCF6AA /* SignUpButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpButtonCell.xib; sourceTree = "<group>"; };
@@ -171,6 +174,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D0A2869F1C1802F4005D32AA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D0A286A01C18031F005D32AA /* UIColors */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		D0A286A01C18031F005D32AA /* UIColors */ = {
+			isa = PBXGroup;
+			children = (
+				D0A286A11C180350005D32AA /* UIColor+Additions.h */,
+				D0A286A21C180350005D32AA /* UIColor+Additions.m */,
+			);
+			name = UIColors;
+			sourceTree = "<group>";
+		};
 		D0DF60251C17EC3400948C7B /* Status VC */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,6 +310,7 @@
 		D0E535E11C05901B00C9CFA7 = {
 			isa = PBXGroup;
 			children = (
+				D0A2869F1C1802F4005D32AA /* Helpers */,
 				D0E103871C16A14D00E3304A /* Storyboard and Nibs */,
 				D0E103831C169BB900E3304A /* Modal */,
 				D0E103821C169B8600E3304A /* Network Manager */,
@@ -638,6 +659,7 @@
 				D0E7D4FE1C0D675A0099AACA /* EmailAddressCell.m in Sources */,
 				D0E7D4FA1C0C5C670099AACA /* SignUpViewController.m in Sources */,
 				D0E7D50D1C0D945D0099AACA /* ForgotPasswordCell.m in Sources */,
+				D0A286A31C180350005D32AA /* UIColor+Additions.m in Sources */,
 				D0E535F61C05901C00C9CFA7 /* WelcomeScreenController.m in Sources */,
 				D0DF9FB31C15908C00CCF6AA /* TermsandConditionsVC.m in Sources */,
 				D0E535F31C05901C00C9CFA7 /* AppDelegate.m in Sources */,

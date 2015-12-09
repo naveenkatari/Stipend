@@ -8,6 +8,7 @@
 
 #import "SignInButtonCell.h"
 #import "EmailAddressCell.h"
+#import "UIColor+Additions.h"
 
 @implementation SignInButtonCell
 {
@@ -17,7 +18,7 @@
 
 - (void)awakeFromNib {
     [self.signInButton setEnabled:NO];
-    self.signInButton.backgroundColor = [UIColor colorWithRed:165.0f/255.0f green:225.0f/255.0f blue:233.0f/255.0f alpha:1];
+    self.signInButton.backgroundColor = [UIColor CHInactiveBlueColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
