@@ -18,8 +18,7 @@
 }
 -(BOOL) validatePassword:(NSString *)passwordToValidate
 {    NSError *error = NULL;
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^(?=.*[a-z])(?=.*\\d)[a-z\\d]*$"
-                                                                           options:NSRegularExpressionCaseInsensitive
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^(?=.*[a-z])(?=.*\\d)[a-z\\d]*$" options:NSRegularExpressionCaseInsensitive
                                                                              error:&error];
     NSArray *matches = [regex matchesInString:passwordToValidate
                                       options:0

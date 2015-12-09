@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ForgotPasswordViewController : UIViewController <UIAlertViewDelegate>
+@interface ForgotPasswordViewController : UIViewController <UIAlertViewDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *emailAddressTextField;
+@property (weak, nonatomic) IBOutlet UIView *emailIdUnderlineView;
+@property (weak, nonatomic) IBOutlet UILabel *emailIdValidationLabel;
+@property (weak, nonatomic) IBOutlet UIButton *sendEmailButton;
 
 - (IBAction)sendForgotPasswordLinkButton:(id)sender;
 @end

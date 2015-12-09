@@ -11,6 +11,8 @@
 #import "APIClient+ForgotPassword.h"
 #import "ActivityIndicatorView.h"
 #import "WelcomeScreenController.h"
+#import "UIColor+Additions.h"
+#import "Validations.h"
 
 @interface ForgotPasswordViewController ()
 
@@ -20,9 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
     self.title = @"Forgot Your Password?";
+    [self.emailIdValidationLabel setHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,22 +34,36 @@
 {
     [self.emailAddressTextField becomeFirstResponder ];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - TextField delegate methods
+- (IBAction)emailTextFieldEditingDidBEegin:(id)sender
+{
+    self.emailIdUnderlineView.backgroundColor = [UIColor CHActiveBlueColor];
 }
-*/
+- (IBAction)emailTextFieldEditingDidEnd:(id)sender
+{
+    self.emailIdUnderlineView.backgroundColor = [UIColor CHSgiGrayColor];
+}
+- (IBAction)emailTexyFieldEditingChanged:(id)sender
+{
+    [self.emailIdValidationLabel setHidden:YES];
+}
 
 - (IBAction)sendForgotPasswordLinkButton:(id)sender
 {
-    NSMutableDictionary *userEmailDictionary = [[NSMutableDictionary alloc]init];
-    [userEmailDictionary setObject:self.emailAddressTextField.text forKey:@"emailId"];
-    [self forgotPasswordDetailsResponse:@"POST" withParameters:userEmailDictionary];
+    NSString *emailID = self.emailAddressTextField.text;
+    Validations *validations  = [[Validations alloc] init];
+    if(![validations validateEmail:emailID])
+    {
+        self.emailIdValidationLabel.text =  @"ENTER VALID EMAIL ADDRESS";
+        [self.emailIdValidationLabel setHidden:NO];
+    }
+    else
+    {
+        [self.emailIdValidationLabel setHidden:YES];
+        NSMutableDictionary *userEmailDictionary = [[NSMutableDictionary alloc]init];
+        [userEmailDictionary setObject:self.emailAddressTextField.text forKey:@"emailId"];
+        [self forgotPasswordDetailsResponse:@"POST" withParameters:userEmailDictionary];
+    }
     
 }
 -(void) forgotPasswordDetailsResponse : (NSString *)method withParameters: (NSMutableDictionary *)parameters
@@ -58,17 +73,22 @@
     activityView.center = self.view.center;
     
     [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+    
+    
     [[APIClient sharedAPIClient] forgotPasswordOfUser:parameters WithCompletionHandler:^(NSDictionary *responseData, NSURLResponse *response, NSError *error)
     {
-        if ([[responseData objectForKey:@"ErrorCode" ]  isEqualToNumber:[ NSNumber numberWithLong:0 ] ])
-        {
-        UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Password Sent Succesfully"
-                                                         message:@"Password has been sent to your mail successfully"
-                                                        delegate:self
-                                               cancelButtonTitle:nil
-                                               otherButtonTitles: @"OK", nil];
-        [alert show];
+        if ([[responseData objectForKey:@"Status"] isEqualToString:@"Password sent to your Email Successfully"]) {
+           
+            [self showALertView:@"Password Sent Succesfully" :@"Password has been sent to your mail successfully"];
         }
+        else if ([[responseData objectForKey:@"Status"] isEqualToString:@"Email doesn't Exixts"]) {
+            
+            [self showALertView:@"Email Doesn't Exists" :@"This email is not registered"];
+        }
+       else if ([[responseData objectForKey:@"ErrorCode" ]  isEqualToNumber:[ NSNumber numberWithLong: -1] ])
+       {
+           [self showALertView:@"Failure" :@"Request is failed, please try again"];
+       }
 
         NSLog(@"Server Response %@", responseData);
         [activityView setHidden:YES];
@@ -77,10 +97,22 @@
 }
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 0)
+    if ([alertView.title isEqualToString:@"Password Sent Succesfully"])
     {
         WelcomeScreenController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"WelcomeScreen"];
         [self showViewController:viewController sender:self];
     }
 }
+
+-(void) showALertView : (NSString *) title : (NSString *) message {
+    UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:title
+                                                     message:message
+                                                    delegate:self
+                                           cancelButtonTitle:nil
+                                           otherButtonTitles: @"OK", nil];
+    [alert show];
+}
+
+
+
 @end

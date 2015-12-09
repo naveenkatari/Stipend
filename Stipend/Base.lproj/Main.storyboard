@@ -1033,11 +1033,17 @@
                                         <exclude reference="2Z3-nY-gVj"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="31" y="233" width="338" height="44"/>
                                     <mask key="constraints">
                                         <include reference="2Z3-nY-gVj"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="emailTextFieldEditingDidBEegin:" destination="sDV-wR-ObD" eventType="editingDidBegin" id="lby-N7-BE7"/>
+                                    <action selector="emailTextFieldEditingDidEnd:" destination="sDV-wR-ObD" eventType="editingDidEnd" id="Azu-4D-lkQ"/>
+                                    <action selector="emailTexyFieldEditingChanged:" destination="sDV-wR-ObD" eventType="editingChanged" id="teh-Yp-jP7"/>
+                                </connections>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YDh-uf-u89">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -1069,15 +1075,26 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="emailTextFieldEditingDidBEegin:" destination="sDV-wR-ObD" eventType="editingDidBegin" id="Xze-PP-MMW"/>
                                     <action selector="sendForgotPasswordLinkButton:" destination="sDV-wR-ObD" eventType="touchUpInside" id="x7U-Mm-PgJ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2u-he-pKJ">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="11"/>
+                                <color key="textColor" red="0.91876541940789469" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="61" y="292" width="42" height="15"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="szG-RE-yfA" secondAttribute="trailing" constant="45" id="3dF-oe-uwf"/>
                             <constraint firstItem="MVE-Oa-Iok" firstAttribute="leading" secondItem="vm1-vP-Wsh" secondAttribute="leadingMargin" constant="15" id="59G-bl-rkL"/>
+                            <constraint firstItem="szG-RE-yfA" firstAttribute="top" secondItem="g2u-he-pKJ" secondAttribute="bottom" constant="15" id="Ee4-Gl-fgT"/>
                             <constraint firstItem="MVE-Oa-Iok" firstAttribute="top" secondItem="TsH-91-bDg" secondAttribute="bottom" constant="14" id="HZS-8T-svA">
                                 <variation key="heightClass=regular-widthClass=compact" constant="10"/>
                             </constraint>
@@ -1091,9 +1108,11 @@
                             <constraint firstAttribute="trailingMargin" secondItem="YDh-uf-u89" secondAttribute="trailing" constant="15" id="hku-Cr-xgf"/>
                             <constraint firstItem="YDh-uf-u89" firstAttribute="top" secondItem="MVE-Oa-Iok" secondAttribute="bottom" id="hpD-Tf-WLF"/>
                             <constraint firstItem="Pmd-sU-rcp" firstAttribute="top" secondItem="t5F-oY-xaP" secondAttribute="bottom" constant="50" id="oIO-QB-0u5"/>
+                            <constraint firstItem="g2u-he-pKJ" firstAttribute="top" secondItem="YDh-uf-u89" secondAttribute="bottom" constant="15" id="pNa-y0-O7w"/>
                             <constraint firstItem="TsH-91-bDg" firstAttribute="top" secondItem="Pmd-sU-rcp" secondAttribute="bottom" constant="50" id="x6Q-ed-001">
                                 <variation key="heightClass=regular-widthClass=compact" constant="40"/>
                             </constraint>
+                            <constraint firstItem="g2u-he-pKJ" firstAttribute="leading" secondItem="vm1-vP-Wsh" secondAttribute="leadingMargin" constant="45" id="ziS-Oo-uRo"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -1102,22 +1121,26 @@
                                 <exclude reference="MVE-Oa-Iok"/>
                                 <exclude reference="YDh-uf-u89"/>
                                 <exclude reference="szG-RE-yfA"/>
+                                <exclude reference="g2u-he-pKJ"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="59G-bl-rkL"/>
-                                <exclude reference="HZS-8T-svA"/>
-                                <exclude reference="Xsh-an-yJg"/>
-                                <exclude reference="dUs-pK-LD7"/>
-                                <exclude reference="x6Q-ed-001"/>
-                                <exclude reference="3dF-oe-uwf"/>
-                                <exclude reference="IDV-DJ-6EE"/>
-                                <exclude reference="Ymz-GW-eI3"/>
                                 <exclude reference="U9M-DG-p18"/>
                                 <exclude reference="gqR-42-q2H"/>
                                 <exclude reference="oIO-QB-0u5"/>
+                                <exclude reference="dUs-pK-LD7"/>
+                                <exclude reference="x6Q-ed-001"/>
+                                <exclude reference="59G-bl-rkL"/>
+                                <exclude reference="HZS-8T-svA"/>
+                                <exclude reference="Xsh-an-yJg"/>
                                 <exclude reference="Y9u-vM-4Kb"/>
                                 <exclude reference="hku-Cr-xgf"/>
                                 <exclude reference="hpD-Tf-WLF"/>
+                                <exclude reference="pNa-y0-O7w"/>
+                                <exclude reference="ziS-Oo-uRo"/>
+                                <exclude reference="3dF-oe-uwf"/>
+                                <exclude reference="Ee4-Gl-fgT"/>
+                                <exclude reference="IDV-DJ-6EE"/>
+                                <exclude reference="Ymz-GW-eI3"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -1127,27 +1150,34 @@
                                 <include reference="MVE-Oa-Iok"/>
                                 <include reference="YDh-uf-u89"/>
                                 <include reference="szG-RE-yfA"/>
+                                <include reference="g2u-he-pKJ"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="59G-bl-rkL"/>
-                                <include reference="HZS-8T-svA"/>
-                                <include reference="Xsh-an-yJg"/>
-                                <include reference="dUs-pK-LD7"/>
-                                <include reference="x6Q-ed-001"/>
-                                <include reference="3dF-oe-uwf"/>
-                                <include reference="IDV-DJ-6EE"/>
-                                <include reference="Ymz-GW-eI3"/>
                                 <include reference="U9M-DG-p18"/>
                                 <include reference="gqR-42-q2H"/>
                                 <include reference="oIO-QB-0u5"/>
+                                <include reference="dUs-pK-LD7"/>
+                                <include reference="x6Q-ed-001"/>
+                                <include reference="59G-bl-rkL"/>
+                                <include reference="HZS-8T-svA"/>
+                                <include reference="Xsh-an-yJg"/>
                                 <include reference="Y9u-vM-4Kb"/>
                                 <include reference="hku-Cr-xgf"/>
                                 <include reference="hpD-Tf-WLF"/>
+                                <include reference="pNa-y0-O7w"/>
+                                <include reference="ziS-Oo-uRo"/>
+                                <include reference="3dF-oe-uwf"/>
+                                <include reference="Ee4-Gl-fgT"/>
+                                <include reference="IDV-DJ-6EE"/>
+                                <include reference="Ymz-GW-eI3"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="emailAddressTextField" destination="MVE-Oa-Iok" id="mIh-9v-zyP"/>
+                        <outlet property="emailIdUnderlineView" destination="YDh-uf-u89" id="e2N-Ls-4EN"/>
+                        <outlet property="emailIdValidationLabel" destination="g2u-he-pKJ" id="vgV-eN-uQK"/>
+                        <outlet property="sendEmailButton" destination="szG-RE-yfA" id="gjo-Bg-nFP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aIE-K0-Ek8" userLabel="First Responder" sceneMemberID="firstResponder"/>
