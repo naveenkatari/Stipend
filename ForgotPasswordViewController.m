@@ -79,15 +79,15 @@
     {
         if ([[responseData objectForKey:@"Status"] isEqualToString:@"Password sent to your Email Successfully"]) {
            
-            [self showALertView:@"Password Sent Succesfully" :@"Password has been sent to your mail successfully"];
+            [self showALertView:@"Password Sent Succesfully" : @"Password has been sent to your mail successfully"];
         }
         else if ([[responseData objectForKey:@"Status"] isEqualToString:@"Email doesn't Exixts"]) {
             
-            [self showALertView:@"Email Doesn't Exists" :@"This email is not registered"];
+            [self showALertView:@"Email Doesn't Exists" : @"This email is not registered"];
         }
        else if ([[responseData objectForKey:@"ErrorCode" ]  isEqualToNumber:[ NSNumber numberWithLong: -1] ])
        {
-           [self showALertView:@"Failure" :@"Request is failed, please try again"];
+           [self showALertView:@"Failure" : @"Request is failed, please try again"];
        }
 
         NSLog(@"Server Response %@", responseData);
@@ -105,14 +105,9 @@
 }
 
 -(void) showALertView : (NSString *) title : (NSString *) message {
-    UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:title
-                                                     message:message
-                                                    delegate:self
-                                           cancelButtonTitle:nil
-                                           otherButtonTitles: @"OK", nil];
+    UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:title message:message delegate:self cancelButtonTitle:nil otherButtonTitles: @"OK", nil];
     [alert show];
 }
-
 
 
 @end

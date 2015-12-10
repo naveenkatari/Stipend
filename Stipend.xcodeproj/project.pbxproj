@@ -61,6 +61,10 @@
 		D0E7D5201C0EAB2D0099AACA /* NameViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E7D51E1C0EAB2D0099AACA /* NameViewCell.m */; };
 		D0E7D5211C0EAB2D0099AACA /* NameViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0E7D51F1C0EAB2D0099AACA /* NameViewCell.xib */; };
 		D0E7D5251C0EDE290099AACA /* ForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E7D5241C0EDE290099AACA /* ForgotPasswordViewController.m */; };
+		D0EF3D2C1C1939BD00B5CBA6 /* Reachability.h in Sources */ = {isa = PBXBuildFile; fileRef = D0EF3D2A1C1939BD00B5CBA6 /* Reachability.h */; };
+		D0EF3D2D1C1939BD00B5CBA6 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EF3D2B1C1939BD00B5CBA6 /* Reachability.m */; };
+		D0EF3D2F1C1939DF00B5CBA6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0EF3D2E1C1939DF00B5CBA6 /* SystemConfiguration.framework */; };
+		D0EF3D331C19461600B5CBA6 /* NetworkUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EF3D321C19461600B5CBA6 /* NetworkUtility.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +158,11 @@
 		D0E7D51F1C0EAB2D0099AACA /* NameViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NameViewCell.xib; sourceTree = "<group>"; };
 		D0E7D5231C0EDE290099AACA /* ForgotPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgotPasswordViewController.h; sourceTree = "<group>"; };
 		D0E7D5241C0EDE290099AACA /* ForgotPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgotPasswordViewController.m; sourceTree = "<group>"; };
+		D0EF3D2A1C1939BD00B5CBA6 /* Reachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		D0EF3D2B1C1939BD00B5CBA6 /* Reachability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		D0EF3D2E1C1939DF00B5CBA6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D0EF3D311C19461600B5CBA6 /* NetworkUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkUtility.h; sourceTree = "<group>"; };
+		D0EF3D321C19461600B5CBA6 /* NetworkUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkUtility.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +170,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0EF3D2F1C1939DF00B5CBA6 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +320,9 @@
 		D0E535E11C05901B00C9CFA7 = {
 			isa = PBXGroup;
 			children = (
+				D0EF3D2E1C1939DF00B5CBA6 /* SystemConfiguration.framework */,
+				D0EA52C21C1999B300E7EF35 /* Reachability */,
+				D0EF3D301C1945ED00B5CBA6 /* Utilities */,
 				D0A2869F1C1802F4005D32AA /* Helpers */,
 				D0E103871C16A14D00E3304A /* Storyboard and Nibs */,
 				D0E103831C169BB900E3304A /* Modal */,
@@ -517,6 +530,24 @@
 			name = ForgotPasswordVC;
 			sourceTree = "<group>";
 		};
+		D0EA52C21C1999B300E7EF35 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				D0EF3D2A1C1939BD00B5CBA6 /* Reachability.h */,
+				D0EF3D2B1C1939BD00B5CBA6 /* Reachability.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
+		D0EF3D301C1945ED00B5CBA6 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D0EF3D311C19461600B5CBA6 /* NetworkUtility.h */,
+				D0EF3D321C19461600B5CBA6 /* NetworkUtility.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -644,6 +675,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0EF3D2C1C1939BD00B5CBA6 /* Reachability.h in Sources */,
+				D0EF3D2D1C1939BD00B5CBA6 /* Reachability.m in Sources */,
 				D0DF9FA11C11601E00CCF6AA /* UserStatusViewController.m in Sources */,
 				D0E103861C169BD400E3304A /* UserDetails.m in Sources */,
 				D0E7D5251C0EDE290099AACA /* ForgotPasswordViewController.m in Sources */,
@@ -657,6 +690,7 @@
 				D0DF9FB61C1590A200CCF6AA /* PrivacyPolicyVC.m in Sources */,
 				D0E7D5201C0EAB2D0099AACA /* NameViewCell.m in Sources */,
 				D0E7D4FE1C0D675A0099AACA /* EmailAddressCell.m in Sources */,
+				D0EF3D331C19461600B5CBA6 /* NetworkUtility.m in Sources */,
 				D0E7D4FA1C0C5C670099AACA /* SignUpViewController.m in Sources */,
 				D0E7D50D1C0D945D0099AACA /* ForgotPasswordCell.m in Sources */,
 				D0A286A31C180350005D32AA /* UIColor+Additions.m in Sources */,

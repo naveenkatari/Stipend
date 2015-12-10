@@ -13,5 +13,6 @@
 +(UIColor *) CHActiveBlueHalfOpaqueColor;
 +(UIColor *) CHInactiveBlueColor;
 +(UIColor *) CHSgiGrayColor;
++(UIColor *) CHLabelGrayColor;
 
 @end

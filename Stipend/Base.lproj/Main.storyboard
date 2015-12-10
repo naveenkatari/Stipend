@@ -611,7 +611,7 @@
                             <constraint firstItem="tcO-pB-1V1" firstAttribute="top" secondItem="USK-rw-NBI" secondAttribute="bottom" constant="10" id="4u7-2c-Mgh"/>
                             <constraint firstAttribute="centerX" secondItem="ceT-IN-A0c" secondAttribute="centerX" id="BvV-pz-WgD"/>
                             <constraint firstItem="8aG-li-tdo" firstAttribute="top" secondItem="kwP-zU-SPk" secondAttribute="bottom" constant="10" id="EoL-Iq-BbU"/>
-                            <constraint firstItem="8aG-li-tdo" firstAttribute="height" secondItem="uOO-Kr-aMi" secondAttribute="height" multiplier="0.01" id="GG1-hj-qlI"/>
+                            <constraint firstItem="8aG-li-tdo" firstAttribute="height" secondItem="uOO-Kr-aMi" secondAttribute="height" multiplier="0.02" id="GG1-hj-qlI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tcO-pB-1V1" secondAttribute="trailing" constant="75" id="HWD-5E-EYL"/>
                             <constraint firstAttribute="trailing" secondItem="EJc-TL-sPh" secondAttribute="trailing" constant="40" id="Iav-mJ-eGw"/>
                             <constraint firstAttribute="trailing" secondItem="8aG-li-tdo" secondAttribute="trailing" constant="20" id="KSX-jQ-g4y"/>
@@ -768,7 +768,7 @@
         <scene sceneID="oY5-fk-o9Z">
             <objects>
                 <tableViewController id="PTP-fI-YoR" customClass="SignInViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="u25-MQ-AcT">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="u25-MQ-AcT">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
@@ -965,7 +965,7 @@
         <scene sceneID="vCJ-bG-h0a">
             <objects>
                 <tableViewController id="so0-gV-Hbj" customClass="SignUpViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="YqX-ar-Xpy">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="YqX-ar-Xpy">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1033,8 +1033,7 @@
                                         <exclude reference="2Z3-nY-gVj"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="31" y="233" width="338" height="44"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="2Z3-nY-gVj"/>
                                     </mask>
@@ -1084,9 +1083,6 @@
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="11"/>
                                 <color key="textColor" red="0.91876541940789469" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="61" y="292" width="42" height="15"/>
-                                </variation>
                             </label>
                         </subviews>
                         <animations/>
@@ -1124,23 +1120,23 @@
                                 <exclude reference="g2u-he-pKJ"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="U9M-DG-p18"/>
-                                <exclude reference="gqR-42-q2H"/>
-                                <exclude reference="oIO-QB-0u5"/>
-                                <exclude reference="dUs-pK-LD7"/>
-                                <exclude reference="x6Q-ed-001"/>
                                 <exclude reference="59G-bl-rkL"/>
                                 <exclude reference="HZS-8T-svA"/>
                                 <exclude reference="Xsh-an-yJg"/>
-                                <exclude reference="Y9u-vM-4Kb"/>
-                                <exclude reference="hku-Cr-xgf"/>
-                                <exclude reference="hpD-Tf-WLF"/>
+                                <exclude reference="dUs-pK-LD7"/>
+                                <exclude reference="x6Q-ed-001"/>
                                 <exclude reference="pNa-y0-O7w"/>
                                 <exclude reference="ziS-Oo-uRo"/>
                                 <exclude reference="3dF-oe-uwf"/>
                                 <exclude reference="Ee4-Gl-fgT"/>
                                 <exclude reference="IDV-DJ-6EE"/>
                                 <exclude reference="Ymz-GW-eI3"/>
+                                <exclude reference="U9M-DG-p18"/>
+                                <exclude reference="gqR-42-q2H"/>
+                                <exclude reference="oIO-QB-0u5"/>
+                                <exclude reference="Y9u-vM-4Kb"/>
+                                <exclude reference="hku-Cr-xgf"/>
+                                <exclude reference="hpD-Tf-WLF"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -1153,23 +1149,23 @@
                                 <include reference="g2u-he-pKJ"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="U9M-DG-p18"/>
-                                <include reference="gqR-42-q2H"/>
-                                <include reference="oIO-QB-0u5"/>
-                                <include reference="dUs-pK-LD7"/>
-                                <include reference="x6Q-ed-001"/>
                                 <include reference="59G-bl-rkL"/>
                                 <include reference="HZS-8T-svA"/>
                                 <include reference="Xsh-an-yJg"/>
-                                <include reference="Y9u-vM-4Kb"/>
-                                <include reference="hku-Cr-xgf"/>
-                                <include reference="hpD-Tf-WLF"/>
+                                <include reference="dUs-pK-LD7"/>
+                                <include reference="x6Q-ed-001"/>
                                 <include reference="pNa-y0-O7w"/>
                                 <include reference="ziS-Oo-uRo"/>
                                 <include reference="3dF-oe-uwf"/>
                                 <include reference="Ee4-Gl-fgT"/>
                                 <include reference="IDV-DJ-6EE"/>
                                 <include reference="Ymz-GW-eI3"/>
+                                <include reference="U9M-DG-p18"/>
+                                <include reference="gqR-42-q2H"/>
+                                <include reference="oIO-QB-0u5"/>
+                                <include reference="Y9u-vM-4Kb"/>
+                                <include reference="hku-Cr-xgf"/>
+                                <include reference="hpD-Tf-WLF"/>
                             </mask>
                         </variation>
                     </view>

@@ -38,8 +38,12 @@
 }
 - (IBAction)editingChanged:(id)sender
 {
+    UITextField *textfield = (UITextField *)sender;
+    if (textfield.tag == )
     if (self.checkEmailTextFieldLength) {
         self.checkEmailTextFieldLength();
+        self.emailAddressLabel.text = @"EMAIL ADDRESS";
+        self.emailAddressLabel.textColor = [UIColor CHLabelGrayColor];
     }
 }
 -(BOOL)textFieldShouldReturn:(UITextField *)textField

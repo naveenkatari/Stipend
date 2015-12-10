@@ -16,6 +16,7 @@
 #import "ActivityIndicatorView.h"
 #import "UserDetails.h"
 #import "UIColor+Additions.h"
+#import "NetworkUtility.h"
 
 
 @interface SignInViewController ()
@@ -54,12 +55,12 @@
     
     [self setEmailTextFieldFirstResponder];
 }
+#pragma mark - TableView delegate methods
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     return  90.0f;
 }
-#pragma mark - Table Field delegate methods
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -72,8 +73,7 @@
     {
         static NSString *CellIdentifier1 = @"EmailCell";
         EmailAddressCell *cell = (EmailAddressCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier1 forIndexPath:indexPath];
-         cell.separatorInset = UIEdgeInsetsMake(0, 1000, 0, 0);
-         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.emailAddressTextfield.tag = indexPath.row;
         __weak SignInViewController *weakSelf = self;
         cell.checkEmailTextFieldLength = ^{
             [weakSelf enableDisableSignInButton];
@@ -84,8 +84,6 @@
        static NSString *CellIdentifier2 = @"PasswordCell";
         PasswordCell *cell = (PasswordCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier2 forIndexPath:indexPath];
         cell.passwordTextField.tag = indexPath.row;
-         cell.separatorInset = UIEdgeInsetsMake(0, 1000, 0, 0);
-         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         __weak SignInViewController *weakSelf = self;
         cell.checkPasswordTextFieldLength = ^{
             [weakSelf enableDisableSignInButton];
@@ -96,8 +94,6 @@
     {
        static NSString *CellIdentifier3 = @"ForgotPasswordCell";
         ForgotPasswordCell *cell = (ForgotPasswordCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier3 forIndexPath:indexPath];
-        cell.separatorInset = UIEdgeInsetsMake(0, 1000, 0, 0);
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         __weak SignInViewController *weakSelf = self;
         cell.forgotPasswordBlock = ^{
@@ -109,9 +105,6 @@
     {
         static NSString *CellIdentifier4 = @"SignInCell";
         SignInButtonCell *cell = (SignInButtonCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier4 forIndexPath:indexPath];
-        cell.separatorInset = UIEdgeInsetsMake(0, 1000, 0, 0);
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
         __weak SignInViewController *weakSelf = self;
         
         cell.signActionBlock = ^{
@@ -121,7 +114,7 @@
     }
     return nil;
 }
-
+#pragma mark - signin button action
 -(void) signInAction
 {
     validations = [[Validations alloc]init];
@@ -154,19 +147,15 @@
         [self getSigninResponseFromServer: @"POST" withParameters:userSignInDetailsDictionary];
     }
 }
--(void) forgetPasswordAction
-{
-    ForgotPasswordViewController *viewController = [self.navigationController.storyboard instantiateViewControllerWithIdentifier:@"ForgetPasswordVcIdentifier"];
-    [self.navigationController pushViewController:viewController animated:YES];
-}
-
+#pragma mark - connecting to server
 -(void) getSigninResponseFromServer:(NSString *)method withParameters:(NSMutableDictionary *)parameters
 {
-    
+    //Adding acitivity indicator when hitting the server
    ActivityIndicatorView *activityView = [[NSBundle mainBundle] loadNibNamed:@"ActivityIndicatorView" owner:self options:nil][0];
     [self.view addSubview:activityView];
     activityView.center = self.view.center;
     
+    //Connecting to server and getting response back, interacting with UI is disabled
     [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
     [[APIClient sharedAPIClient] loginWithUserDetails:parameters WithCompletionHandler:^(NSDictionary *responseData, NSURLResponse *response, NSError *error) {
         if ( [[responseData objectForKey:@"ErrorCode" ]  isEqualToNumber:[ NSNumber numberWithLong:0 ] ] ) {
@@ -180,6 +169,8 @@
             [cell.signInStatusLabel setHidden:NO];
             cell.signInStatusLabel.text = @"NOT VALID EMAILID AND PASSWORD";
         }
+        
+        //After hitting the server activity indicator is hidden and interacting with UI is enabled
         NSLog(@"response data %@", responseData);
         [activityView setHidden:YES];
         [[UIApplication sharedApplication]endIgnoringInteractionEvents];
@@ -187,7 +178,12 @@
         [UserDetails sharedUserDetails].userLastName = responseData[@"lastName"];
     }];
 }
-
+#pragma mark - additional methods
+-(void) forgetPasswordAction
+{
+    ForgotPasswordViewController *viewController = [self.navigationController.storyboard instantiateViewControllerWithIdentifier:@"ForgetPasswordVcIdentifier"];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
 -(void) setEmailTextFieldFirstResponder
 {
     EmailAddressCell *emailCell = (EmailAddressCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];

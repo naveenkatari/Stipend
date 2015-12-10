@@ -7,6 +7,7 @@
 //
 
 #import "APIClient.h"
+#import "NetworkUtility.h"
 
 
 @implementation APIClient
@@ -36,10 +37,11 @@
 }
 
 
-#pragma mark API method to hit the server
+#pragma mark - API method to hit the server
 
-- (void)POST:(NSString *)apiName withParameters:(NSDictionary *)parameters withCompletionHandler:(void (^)(NSDictionary *, NSURLResponse *, NSError *))completionHandler {
-    
+- (void)POST:(NSString *)apiName withParameters:(NSDictionary *)parameters withCompletionHandler:(void (^)(NSDictionary *, NSURLResponse *, NSError *))completionHandler
+{
+    NetworkUtility *networkUtility = [[NetworkUtility alloc]init];
     
     NSString *urlString = [NSString stringWithFormat:@"%@/%@", kBaseUrl, apiName];
     
@@ -51,15 +53,21 @@
     [urlRequest setHTTPBody:parametersData];
     [urlRequest setHTTPMethod:@"POST"];
     [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    
-    NSURLSessionDataTask * dataTask =[self.defaultSession dataTaskWithRequest :urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    if (networkUtility.checkNetworkStatus) {
         
-        NSDictionary *responseData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        NSURLSessionDataTask * dataTask =[self.defaultSession dataTaskWithRequest :urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
-        completionHandler(responseData, response, error);
+            NSDictionary *responseData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         
-    }];
-    [dataTask resume];
+            completionHandler(responseData, response, error);
+        
+        }];
+        [dataTask resume];
+    }
+    else
+    {
+        NSLog(@"Unable to connect to internet");
+    }
 }
 
 

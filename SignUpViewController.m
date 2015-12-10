@@ -47,6 +47,7 @@
 {
     [self setFirstNameTextFieldFirstResponder];
 }
+#pragma mark - TableView delegate methods
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 90.0f;
@@ -60,9 +61,6 @@
     if(indexPath.row == 0)
     {
     NameViewCell *cell = (NameViewCell *)[tableView dequeueReusableCellWithIdentifier:@"NameCell" forIndexPath:indexPath];
-    cell.separatorInset = UIEdgeInsetsMake(0, 1000, 0, 0);
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
         __weak SignUpViewController *weakSelf = self;
         cell.setNextResponderForFirstName = ^(UITextField *textField){
             [weakSelf nextResponderWithTag:indexPath.row withTextField:textField];
@@ -77,9 +75,6 @@
     {
         EmailAddressCell *cell = (EmailAddressCell *)[tableView dequeueReusableCellWithIdentifier:@"EmailCell" forIndexPath:indexPath];
         cell.emailAddressTextfield.tag = indexPath.row;
-        cell.separatorInset = UIEdgeInsetsMake(0, 1000, 0, 0);
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
         __weak SignUpViewController *weakSelf = self;
         cell.setNextResponderForEmail = ^{
             [weakSelf nextResponderWithTag:indexPath.row withTextField:nil];
@@ -89,22 +84,15 @@
     else if (indexPath.row == 2) {
         PasswordCell *cell = (PasswordCell *)[tableView dequeueReusableCellWithIdentifier:@"PasswordCell" forIndexPath:indexPath];
         cell.passwordTextField.tag = indexPath.row;
-        cell.separatorInset = UIEdgeInsetsMake(0, 1000, 0, 0);
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
         __weak SignUpViewController *weakSelf = self;
         cell.setNextResponderForPassword = ^{
             [weakSelf nextResponderWithTag:indexPath.row withTextField:nil];
         };
         return  cell;
-        
-
     }
     else if (indexPath.row == 3) {
         PasswordCell *cell = (PasswordCell *)[tableView dequeueReusableCellWithIdentifier:@"PasswordCell" forIndexPath:indexPath];
         cell.passwordTextField.tag = indexPath.row;
-        cell.separatorInset = UIEdgeInsetsMake(0, 1000, 0, 0);
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.passwordTextField.placeholder = @"Confirm Password";
         cell.passwordLabel.text = @"CONFIRM PASSWORD";
         __weak SignUpViewController *weakSelf = self;
@@ -116,9 +104,6 @@
     else if (indexPath.row == 4)
     {
         SignUpButtonCell *cell = (SignUpButtonCell *)[tableView dequeueReusableCellWithIdentifier:@"SignUpCell" forIndexPath:indexPath];
-        cell.separatorInset = UIEdgeInsetsMake(0, 1000, 0, 0);
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
         __weak SignUpViewController *weakSelf = self;
         cell.signUpActionBlock = ^{
             [weakSelf signUpAction];
@@ -127,8 +112,7 @@
     }
     return nil;
 }
-
-
+#pragma mark - Singup button action
 -(void) signUpAction
 {
     
@@ -171,6 +155,7 @@
     }
 
 }
+#pragma mark - connecting to server
 
 -(void) getSignUpResponseFromServer : (NSString *)method withParameters: (NSMutableDictionary *)parameters
 {
@@ -192,15 +177,13 @@
              SignUpButtonCell *cell = (SignUpButtonCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]];
              [cell.signUpErrorValidationLabel setHidden:NO];
              cell.signUpErrorValidationLabel.text = @"NOT VALID ATTRIBUTES";
-             
          }
-
-
          NSLog(@"Server Response %@", responseData);
          [activityView setHidden:YES];
          [[UIApplication sharedApplication]endIgnoringInteractionEvents];
      }];
 }
+#pragma mark - additional methods
 -(void) setFirstNameTextFieldFirstResponder
 {
     NameViewCell *nameCell = (NameViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];

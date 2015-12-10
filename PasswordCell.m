@@ -78,6 +78,8 @@
     if (self.checkPasswordTextFieldLength) {
         self.checkPasswordTextFieldLength();
     }
+        self.passwordLabel.text = @"PASSWORD";
+        self.passwordLabel.textColor = [UIColor CHLabelGrayColor];
     }
 }
 @end
